@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REAL REVIEW | Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+        
+        body {
+            background-image: url(backGroundLogIn.png);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            width: 100%;
+            max-width: 420px;
+            padding: 40px 35px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .teal-header {
+            color: black;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        
+        .teal-header h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+        
+        .teal-header h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #0f766e;
+            margin-top: -5px;
+            letter-spacing: 1px;
+        }
+        
+        .welcome-text {
+            text-align: center;
+            color: #334155;
+            margin: 25px 0 30px;
+            line-height: 1.5;
+        }
+        
+        .welcome-text h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .welcome-text h4 {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #64748b;
+        }
+        
+        .login-options {
+            margin-bottom: 25px;
+        }
+        
+        .google-login {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 3px solid #e2e8f0;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background-color: #f8fafc;
+        }
+        
+        .google-login:hover {
+            background-color: #e2e8f0;
+            border-color: #cbd5e1;
+        }
+        
+        .google-login label {
+            font-weight: 500;
+            color: #334155;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 100;
+            justify-content: center;
+        }
+        
+        .google-icon {
+            color: #4285f4;
+            font-size: 1.2rem;
+        }
+        
+        .separator {
+            display: flex;
+            align-items: center;
+            margin: 25px 0;
+            color: black;
+        }
+        
+        .separator::before,
+        .separator::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background-color: #e2e8f0cf;
+        }
+        
+        .separator span {
+            padding: 0 15px;
+            font-size: 0.9rem;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #475569;
+            font-weight: 500;
+        }
+        
+        .input-field {
+            width: 100%;
+            padding: 14px 15px;
+            border: 1px solid #cbd5e1;
+            border-radius: 30px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .input-field:focus {
+            outline: none;
+            border-color: #0d9488;
+            box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.1);
+        }
+        
+        .remember-me {
+            display: flex;
+            align-items: center;
+            margin: 25px 0 30px;
+        }
+        
+        .remember-me input {
+            margin-right: 10px;
+            width: 18px;
+            height: 18px;
+            accent-color: #0d9488;
+        }
+        
+        .remember-me label {
+            color: #475569;
+            font-weight: 500;
+            cursor: pointer;
+        }
+        
+        .login-button {
+            width: 100%;
+            padding: 16px;
+            background-color: #FF0000;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            letter-spacing: 0.5px;
+        }
+        
+        .login-button:hover {
+            background-color: #b42b2b;
+        }
+        
+        .form-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .signup-link {
+            text-align: center;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+            color: #475569;
+            font-size: 0.95rem;
+        }
+        
+        .signup-link a {
+            color: #FF0000;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+        
+        .signup-link a:hover {
+            color: #b42b2b;
+            text-decoration: underline;
+        }
+        
+        /* ========== MEDIA QUERIES ========== */
+        
+        /* Large Tablets and Small Desktops */
+        @media (max-width: 1024px) {
+            .login-container {
+                max-width: 400px;
+            }
+        }
+        
+        /* Tablets */
+        @media (max-width: 768px) {
+            .login-container {
+                max-width: 380px;
+                padding: 35px 30px;
+            }
+            
+            .teal-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            body {
+                background-attachment: scroll;
+            }
+        }
+        
+        /* Large Phones */
+        @media (max-width: 600px) {
+            .login-container {
+                max-width: 90%;
+                padding: 30px 25px;
+            }
+            
+            .teal-header h1 {
+                font-size: 2.3rem;
+            }
+            
+            .welcome-text h2 {
+                font-size: 1.2rem;
+            }
+            
+            .welcome-text h4 {
+                font-size: 0.95rem;
+            }
+            
+            .input-field {
+                padding: 12px 15px;
+            }
+        }
+        
+        /* Medium Phones */
+        @media (max-width: 480px) {
+            body {
+                padding: 15px;
+            }
+            
+            .login-container {
+                padding: 25px 20px;
+                max-width: 95%;
+            }
+            
+            .teal-header h1 {
+                font-size: 2.1rem;
+            }
+            
+            .teal-header h2 {
+                font-size: 1.1rem;
+            }
+            
+            .google-login {
+                padding: 12px;
+            }
+            
+            .login-button {
+                padding: 14px;
+                font-size: 1rem;
+            }
+            
+            .separator span {
+                font-size: 0.85rem;
+            }
+        }
+        
+        /* Small Phones */
+        @media (max-width: 375px) {
+            body {
+                padding: 10px;
+            }
+            
+            .login-container {
+                padding: 20px 18px;
+                border-radius: 12px;
+            }
+            
+            .teal-header h1 {
+                font-size: 1.9rem;
+            }
+            
+            .welcome-text {
+                margin: 20px 0 25px;
+            }
+            
+            .welcome-text h2 {
+                font-size: 1.1rem;
+            }
+            
+            .welcome-text h4 {
+                font-size: 0.9rem;
+            }
+            
+            .input-group {
+                margin-bottom: 15px;
+            }
+            
+            .input-field {
+                padding: 10px 12px;
+                font-size: 0.95rem;
+            }
+            
+            .remember-me {
+                margin: 20px 0 25px;
+            }
+            
+            .signup-link {
+                margin-top: 20px;
+                padding-top: 15px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* Very Small Phones (Galaxy Fold, etc) */
+        @media (max-width: 320px) {
+            .login-container {
+                padding: 18px 15px;
+            }
+            
+            .teal-header h1 {
+                font-size: 1.7rem;
+            }
+            
+            .separator span {
+                padding: 0 10px;
+            }
+            
+            .google-login label {
+                font-size: 0.9rem;
+            }
+            
+            .login-button {
+                padding: 12px;
+                font-size: 0.95rem;
+            }
+        }
+        
+        /* Landscape Mode */
+        @media (max-height: 600px) and (orientation: landscape) {
+            body {
+                padding: 10px;
+                align-items: flex-start;
+                min-height: auto;
+                height: auto;
+            }
+            
+            .login-container {
+                margin: 20px 0;
+                max-width: 500px;
+            }
+        }
+        
+        /* High Resolution Screens */
+        @media (min-width: 1400px) {
+            .login-container {
+                max-width: 450px;
+                padding: 45px 40px;
+            }
+            
+            .teal-header h1 {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="form-content">
+            <div class="teal-header">
+                <h1>REAL</h1>
+                <h1>REVIEW</h1>
+            </div>
+            
+            <div class="welcome-text">
+                <h2>Welcome back</h2>
+                <h4>please enter you details</h4>
+            </div>
+            
+            <div class="login-options">
+                <div class="google-login">
+                    <label for="google-login">
+                        <i class="fab fa-google google-icon"></i>
+                        Log in with Google
+                    </label>
+                </div>
+                
+                <div class="separator">
+                    <span>Or</span>
+                </div>
+            </div>
+            
+            <div class="input-group">
+                <label for="email">Email :</label>
+                <input type="email" id="email" class="input-field" placeholder="Enter your email">
+            </div>
+            
+            <div class="input-group">
+                <label for="password">Password :</label>
+                <input type="password" id="password" class="input-field" placeholder="Enter your password">
+            </div>
+            
+            <div class="remember-me">
+                <input type="checkbox" id="remember">
+                <label for="remember">Remember for 30 days</label>
+            </div>
+            
+            <button class="login-button">Login</button>
+            
+            <div class="signup-link">
+                <p>Don't have an account? <a href="signup2.html">Signin</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('.login-button').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            if (!email || !password) {
+                alert('Please enter both email and password');
+                return;
+            }
+            
+            console.log('Login attempt with:', {email, password});
+            alert('Login functionality would connect to backend in a real application');
+        });
+    </script>
+</body>
+</html>

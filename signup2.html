@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REAL REVIEW | Signup</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+        
+        body {
+            background-image: url(backGroundLogIn.png);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .signup-container {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            width: 100%;
+            max-width: 420px;
+            padding: 40px 35px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .teal-header {
+            color: black;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        
+        .teal-header h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+        
+        .welcome-text {
+            text-align: center;
+            color: #334155;
+            margin: 25px 0 30px;
+            line-height: 1.5;
+        }
+        
+        .welcome-text h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .welcome-text h4 {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #64748b;
+        }
+        
+        .signup-options {
+            margin-bottom: 25px;
+        }
+        
+        .google-signup {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 3px solid #e2e8f0;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background-color: #f8fafc;
+        }
+        
+        .google-signup:hover {
+            background-color: #e2e8f0;
+            border-color: #cbd5e1;
+        }
+        
+        .google-signup label {
+            font-weight: 500;
+            color: #334155;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            justify-content: center;
+        }
+        
+        .google-icon {
+            color: #4285f4;
+            font-size: 1.2rem;
+        }
+        
+        .separator {
+            display: flex;
+            align-items: center;
+            margin: 25px 0;
+            color: black;
+        }
+        
+        .separator::before,
+        .separator::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background-color: #e2e8f0cf;
+        }
+        
+        .separator span {
+            padding: 0 15px;
+            font-size: 0.9rem;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #475569;
+            font-weight: 500;
+        }
+        
+        .input-field {
+            width: 100%;
+            padding: 14px 15px;
+            border: 1px solid #cbd5e1;
+            border-radius: 30px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .input-field:focus {
+            outline: none;
+            border-color: #0d9488;
+            box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.1);
+        }
+        
+        .terms-checkbox {
+            display: flex;
+            align-items: flex-start;
+            margin: 25px 0 30px;
+        }
+        
+        .terms-checkbox input {
+            margin-right: 10px;
+            width: 18px;
+            height: 18px;
+            accent-color: #0d9488;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+        
+        .terms-checkbox label {
+            color: #475569;
+            font-weight: 500;
+            cursor: pointer;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+        
+        .terms-checkbox a {
+            color: #FF0000;
+            text-decoration: none;
+        }
+        
+        .terms-checkbox a:hover {
+            text-decoration: underline;
+        }
+        
+        .signup-button {
+            width: 100%;
+            padding: 16px;
+            background-color: #FF0000;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            letter-spacing: 0.5px;
+        }
+        
+        .signup-button:hover {
+            background-color: #b42b2b;
+        }
+        
+        .form-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .login-link {
+            text-align: center;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+            color: #475569;
+            font-size: 0.95rem;
+        }
+        
+        .login-link a {
+            color: #FF0000;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+        
+        .login-link a:hover {
+            color: #b42b2b;
+            text-decoration: underline;
+        }
+        
+        .password-requirements {
+            background-color: #f8fafc;
+            border-radius: 8px;
+            padding: 12px 15px;
+            margin-top: 5px;
+            font-size: 0.85rem;
+            color: #64748b;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .password-requirements p {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #475569;
+        }
+        
+        .password-requirements ul {
+            padding-left: 20px;
+        }
+        
+        .password-requirements li {
+            margin-bottom: 3px;
+        }
+        
+        .valid {
+            color: #10b981;
+        }
+        
+        .invalid {
+            color: #ef4444;
+        }
+        
+        /* ========== MEDIA QUERIES ========== */
+        
+        /* Large Tablets and Small Desktops */
+        @media (max-width: 1024px) {
+            .signup-container {
+                max-width: 400px;
+            }
+        }
+        
+        /* Tablets */
+        @media (max-width: 768px) {
+            .signup-container {
+                max-width: 380px;
+                padding: 35px 30px;
+            }
+            
+            .teal-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            body {
+                background-attachment: scroll;
+            }
+        }
+        
+        /* Large Phones */
+        @media (max-width: 600px) {
+            .signup-container {
+                max-width: 90%;
+                padding: 30px 25px;
+            }
+            
+            .teal-header h1 {
+                font-size: 2.3rem;
+            }
+            
+            .welcome-text h2 {
+                font-size: 1.2rem;
+            }
+            
+            .welcome-text h4 {
+                font-size: 0.95rem;
+            }
+            
+            .input-field {
+                padding: 12px 15px;
+            }
+            
+            .password-requirements {
+                font-size: 0.8rem;
+                padding: 10px 12px;
+            }
+        }
+        
+        /* Medium Phones */
+        @media (max-width: 480px) {
+            body {
+                padding: 15px;
+            }
+            
+            .signup-container {
+                padding: 25px 20px;
+                max-width: 95%;
+            }
+            
+            .teal-header h1 {
+                font-size: 2.1rem;
+            }
+            
+            .google-signup {
+                padding: 12px;
+            }
+            
+            .signup-button {
+                padding: 14px;
+                font-size: 1rem;
+            }
+            
+            .separator span {
+                font-size: 0.85rem;
+            }
+            
+            .terms-checkbox label {
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* Small Phones */
+        @media (max-width: 375px) {
+            body {
+                padding: 10px;
+            }
+            
+            .signup-container {
+                padding: 20px 18px;
+                border-radius: 12px;
+            }
+            
+            .teal-header h1 {
+                font-size: 1.9rem;
+            }
+            
+            .welcome-text {
+                margin: 20px 0 25px;
+            }
+            
+            .welcome-text h2 {
+                font-size: 1.1rem;
+            }
+            
+            .welcome-text h4 {
+                font-size: 0.9rem;
+            }
+            
+            .input-group {
+                margin-bottom: 15px;
+            }
+            
+            .input-field {
+                padding: 10px 12px;
+                font-size: 0.95rem;
+            }
+            
+            .terms-checkbox {
+                margin: 20px 0 25px;
+            }
+            
+            .login-link {
+                margin-top: 20px;
+                padding-top: 15px;
+                font-size: 0.9rem;
+            }
+            
+            .password-requirements {
+                padding: 8px 10px;
+                font-size: 0.75rem;
+            }
+        }
+        
+        /* Very Small Phones (Galaxy Fold, etc) */
+        @media (max-width: 320px) {
+            .signup-container {
+                padding: 18px 15px;
+            }
+            
+            .teal-header h1 {
+                font-size: 1.7rem;
+            }
+            
+            .separator span {
+                padding: 0 10px;
+            }
+            
+            .google-signup label {
+                font-size: 0.9rem;
+            }
+            
+            .signup-button {
+                padding: 12px;
+                font-size: 0.95rem;
+            }
+            
+            .terms-checkbox label {
+                font-size: 0.85rem;
+            }
+            
+            .password-requirements ul {
+                padding-left: 15px;
+            }
+        }
+        
+        /* Landscape Mode */
+        @media (max-height: 700px) and (orientation: landscape) {
+            body {
+                padding: 10px;
+                align-items: flex-start;
+                min-height: auto;
+                height: auto;
+            }
+            
+            .signup-container {
+                margin: 20px 0;
+                max-width: 500px;
+            }
+            
+            .input-group {
+                margin-bottom: 12px;
+            }
+            
+            .password-requirements {
+                display: none; /* Hide in landscape to save space */
+            }
+            
+            .terms-checkbox {
+                margin: 15px 0 20px;
+            }
+        }
+        
+        /* High Resolution Screens */
+        @media (min-width: 1400px) {
+            .signup-container {
+                max-width: 450px;
+                padding: 45px 40px;
+            }
+            
+            .teal-header h1 {
+                font-size: 3rem;
+            }
+        }
+        
+        /* Print Mode */
+        @media print {
+            body {
+                background: white !important;
+            }
+            
+            .signup-container {
+                box-shadow: none;
+                border: 1px solid #ccc;
+            }
+            
+            .signup-button {
+                background-color: #ccc !important;
+                color: #000 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <div class="form-content">
+            <div class="teal-header">
+                <h1>REAL</h1>
+                <h1>REVIEW</h1>
+            </div>
+            
+            <div class="welcome-text">
+                <h2>Create Account</h2>
+                <h4>Join our community of reviewers</h4>
+            </div>
+            
+            <div class="signup-options">
+                <div class="google-signup">
+                    <label for="google-signup">
+                        <i class="fab fa-google google-icon"></i>
+                        Sign up with Google
+                    </label>
+                </div>
+                
+                <div class="separator">
+                    <span>Or</span>
+                </div>
+            </div>
+            
+            <form id="signupForm">
+                <div class="input-group">
+                    <label for="fullName">Full Name :</label>
+                    <input type="text" id="fullName" class="input-field" placeholder="Enter your full name" required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="email">Email :</label>
+                    <input type="email" id="email" class="input-field" placeholder="Enter your email" required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="password">Password :</label>
+                    <input type="password" id="password" class="input-field" placeholder="Create a password" required>
+                    
+                    <div class="password-requirements">
+                        <p>Password must contain:</p>
+                        <ul>
+                            <li id="req-length" class="invalid">At least 8 characters</li>
+                            <li id="req-uppercase" class="invalid">One uppercase letter</li>
+                            <li id="req-number" class="invalid">One number</li>
+                            <li id="req-special" class="invalid">One special character</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="confirmPassword">Confirm Password :</label>
+                    <input type="password" id="confirmPassword" class="input-field" placeholder="Confirm your password" required>
+                </div>
+                
+                <div class="terms-checkbox">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">
+                        I agree to the <a href="#" id="termsLink">Terms of Service</a> and <a href="#" id="privacyLink">Privacy Policy</a>
+                    </label>
+                </div>
+                
+                <button type="submit" class="signup-button">Create Account</button>
+            </form>
+            
+            <div class="login-link">
+                <p>Already have an account? <a href="login.html">Login</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Password validation function
+        function validatePassword(password) {
+            const requirements = {
+                length: password.length >= 8,
+                uppercase: /[A-Z]/.test(password),
+                number: /\d/.test(password),
+                special: /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password)
+            };
+            
+            // Update UI for each requirement
+            document.getElementById('req-length').className = requirements.length ? 'valid' : 'invalid';
+            document.getElementById('req-uppercase').className = requirements.uppercase ? 'valid' : 'invalid';
+            document.getElementById('req-number').className = requirements.number ? 'valid' : 'invalid';
+            document.getElementById('req-special').className = requirements.special ? 'valid' : 'invalid';
+            
+            // Return true if all requirements are met
+            return Object.values(requirements).every(req => req === true);
+        }
+        
+        // Form submission
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const terms = document.getElementById('terms').checked;
+            
+            // Basic validation
+            if (!fullName || !email || !password || !confirmPassword) {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            if (!terms) {
+                alert('You must agree to the Terms of Service and Privacy Policy');
+                return;
+            }
+            
+            // Validate password
+            if (!validatePassword(password)) {
+                alert('Password does not meet requirements');
+                return;
+            }
+            
+            // Check if passwords match
+            if (password !== confirmPassword) {
+                alert('Passwords do not match');
+                document.getElementById('confirmPassword').focus();
+                return;
+            }
+            
+            // Validate email format
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address');
+                document.getElementById('email').focus();
+                return;
+            }
+            
+            // Simulate form submission
+            const signupButton = document.querySelector('.signup-button');
+            signupButton.textContent = 'Creating Account...';
+            signupButton.disabled = true;
+            
+            setTimeout(() => {
+                alert(`Account created successfully!\nWelcome ${fullName}!`);
+                signupButton.textContent = 'Create Account';
+                signupButton.disabled = false;
+                
+                // Redirect to login page after successful signup
+                window.location.href = 'login.html';
+            }, 1500);
+        });
+        
+        // Real-time password validation
+        document.getElementById('password').addEventListener('input', function() {
+            validatePassword(this.value);
+            
+            // Check password confirmation match in real-time
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            if (confirmPassword) {
+                if (this.value !== confirmPassword) {
+                    document.getElementById('confirmPassword').style.borderColor = '#ef4444';
+                } else {
+                    document.getElementById('confirmPassword').style.borderColor = '#10b981';
+                }
+            }
+        });
+        
+        // Confirm password validation
+        document.getElementById('confirmPassword').addEventListener('input', function() {
+            const password = document.getElementById('password').value;
+            if (password && this.value) {
+                if (password !== this.value) {
+                    this.style.borderColor = '#ef4444';
+                } else {
+                    this.style.borderColor = '#10b981';
+                }
+            }
+        });
+        
+        // Terms and Privacy links
+        document.getElementById('termsLink').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Terms of Service page would open here');
+        });
+        
+        document.getElementById('privacyLink').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Privacy Policy page would open here');
+        });
+        
+        // Google signup
+        document.querySelector('.google-signup').addEventListener('click', function() {
+            alert('This would redirect to Google OAuth for signup');
+        });
+    </script>
+</body>
+</html>
