@@ -48,14 +48,6 @@
             letter-spacing: 1px;
         }
         
-        .teal-header h2 {
-            font-size: 1.3rem;
-            font-weight: 500;
-            color: #0f766e;
-            margin-top: -5px;
-            letter-spacing: 1px;
-        }
-        
         .welcome-text {
             text-align: center;
             color: #334155;
@@ -79,6 +71,7 @@
             margin-bottom: 25px;
         }
         
+        /* Updated Google login with checkbox */
         .google-login {
             display: flex;
             align-items: center;
@@ -96,6 +89,14 @@
             border-color: #cbd5e1;
         }
         
+        .google-login input {
+            margin-right: 12px;
+            width: 18px;
+            height: 18px;
+            accent-color: #0d9488;
+            cursor: pointer;
+        }
+        
         .google-login label {
             font-weight: 500;
             color: #334155;
@@ -103,8 +104,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            width: 100;
-            justify-content: center;
+            width: 100%;
         }
         
         .google-icon {
@@ -134,6 +134,7 @@
         
         .input-group {
             margin-bottom: 20px;
+            transition: transform 0.2s ease;
         }
         
         .input-group label {
@@ -149,13 +150,21 @@
             border: 1px solid #cbd5e1;
             border-radius: 30px;
             font-size: 1rem;
-            transition: border-color 0.3s;
+            transition: all 0.3s;
         }
         
         .input-field:focus {
             outline: none;
             border-color: #0d9488;
             box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.1);
+        }
+        
+        /* Style for disabled fields when Google login is selected */
+        .input-field:disabled {
+            background-color: #f1f5f9;
+            border-color: #e2e8f0;
+            color: #94a3b8;
+            cursor: not-allowed;
         }
         
         .remember-me {
@@ -169,6 +178,7 @@
             width: 18px;
             height: 18px;
             accent-color: #0d9488;
+            cursor: pointer;
         }
         
         .remember-me label {
@@ -187,12 +197,25 @@
             font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: all 0.3s;
             letter-spacing: 0.5px;
         }
         
         .login-button:hover {
             background-color: #b42b2b;
+        }
+        
+        .login-button:disabled {
+            background-color: #94a3b8;
+            cursor: not-allowed;
+        }
+        
+        .login-button.google-mode {
+            background-color: #4285f4;
+        }
+        
+        .login-button.google-mode:hover {
+            background-color: #3367d6;
         }
         
         .form-content {
@@ -221,16 +244,23 @@
             text-decoration: underline;
         }
         
-        /* ========== MEDIA QUERIES ========== */
-        
-        /* Large Tablets and Small Desktops */
-        @media (max-width: 1024px) {
-            .login-container {
-                max-width: 400px;
-            }
+        /* Status message for Google login */
+        .google-status {
+            text-align: center;
+            color: #4285f4;
+            font-size: 0.9rem;
+            margin-top: -15px;
+            margin-bottom: 20px;
+            font-weight: 500;
+            opacity: 0;
+            transition: opacity 0.3s;
         }
         
-        /* Tablets */
+        .google-status.show {
+            opacity: 1;
+        }
+        
+        /* ========== MEDIA QUERIES ========== */
         @media (max-width: 768px) {
             .login-container {
                 max-width: 380px;
@@ -240,13 +270,8 @@
             .teal-header h1 {
                 font-size: 2.5rem;
             }
-            
-            body {
-                background-attachment: scroll;
-            }
         }
         
-        /* Large Phones */
         @media (max-width: 600px) {
             .login-container {
                 max-width: 90%;
@@ -256,26 +281,9 @@
             .teal-header h1 {
                 font-size: 2.3rem;
             }
-            
-            .welcome-text h2 {
-                font-size: 1.2rem;
-            }
-            
-            .welcome-text h4 {
-                font-size: 0.95rem;
-            }
-            
-            .input-field {
-                padding: 12px 15px;
-            }
         }
         
-        /* Medium Phones */
         @media (max-width: 480px) {
-            body {
-                padding: 15px;
-            }
-            
             .login-container {
                 padding: 25px 20px;
                 max-width: 95%;
@@ -283,10 +291,6 @@
             
             .teal-header h1 {
                 font-size: 2.1rem;
-            }
-            
-            .teal-header h2 {
-                font-size: 1.1rem;
             }
             
             .google-login {
@@ -297,107 +301,19 @@
                 padding: 14px;
                 font-size: 1rem;
             }
-            
-            .separator span {
-                font-size: 0.85rem;
-            }
         }
         
-        /* Small Phones */
         @media (max-width: 375px) {
-            body {
-                padding: 10px;
-            }
-            
             .login-container {
                 padding: 20px 18px;
-                border-radius: 12px;
             }
             
             .teal-header h1 {
                 font-size: 1.9rem;
             }
             
-            .welcome-text {
-                margin: 20px 0 25px;
-            }
-            
-            .welcome-text h2 {
-                font-size: 1.1rem;
-            }
-            
-            .welcome-text h4 {
-                font-size: 0.9rem;
-            }
-            
-            .input-group {
-                margin-bottom: 15px;
-            }
-            
             .input-field {
-                padding: 10px 12px;
-                font-size: 0.95rem;
-            }
-            
-            .remember-me {
-                margin: 20px 0 25px;
-            }
-            
-            .signup-link {
-                margin-top: 20px;
-                padding-top: 15px;
-                font-size: 0.9rem;
-            }
-        }
-        
-        /* Very Small Phones (Galaxy Fold, etc) */
-        @media (max-width: 320px) {
-            .login-container {
-                padding: 18px 15px;
-            }
-            
-            .teal-header h1 {
-                font-size: 1.7rem;
-            }
-            
-            .separator span {
-                padding: 0 10px;
-            }
-            
-            .google-login label {
-                font-size: 0.9rem;
-            }
-            
-            .login-button {
-                padding: 12px;
-                font-size: 0.95rem;
-            }
-        }
-        
-        /* Landscape Mode */
-        @media (max-height: 600px) and (orientation: landscape) {
-            body {
-                padding: 10px;
-                align-items: flex-start;
-                min-height: auto;
-                height: auto;
-            }
-            
-            .login-container {
-                margin: 20px 0;
-                max-width: 500px;
-            }
-        }
-        
-        /* High Resolution Screens */
-        @media (min-width: 1400px) {
-            .login-container {
-                max-width: 450px;
-                padding: 45px 40px;
-            }
-            
-            .teal-header h1 {
-                font-size: 3rem;
+                padding: 12px 15px;
             }
         }
     </style>
@@ -416,11 +332,18 @@
             </div>
             
             <div class="login-options">
+                <!-- Added checkbox for Google login -->
                 <div class="google-login">
+                    <input type="checkbox" id="google-login">
                     <label for="google-login">
                         <i class="fab fa-google google-icon"></i>
                         Log in with Google
                     </label>
+                </div>
+                
+                <!-- Status message for Google login -->
+                <div class="google-status" id="googleStatus">
+                    Google login selected - email/password fields disabled
                 </div>
                 
                 <div class="separator">
@@ -428,43 +351,209 @@
                 </div>
             </div>
             
-            <div class="input-group">
-                <label for="email">Email :</label>
-                <input type="email" id="email" class="input-field" placeholder="Enter your email">
-            </div>
-            
-            <div class="input-group">
-                <label for="password">Password :</label>
-                <input type="password" id="password" class="input-field" placeholder="Enter your password">
-            </div>
-            
-            <div class="remember-me">
-                <input type="checkbox" id="remember">
-                <label for="remember">Remember for 30 days</label>
-            </div>
-            
-            <button class="login-button">Login</button>
+            <form id="loginForm">
+                <div class="input-group">
+                    <label for="email">Email :</label>
+                    <input type="email" id="email" class="input-field" placeholder="Enter your email">
+                </div>
+                
+                <div class="input-group">
+                    <label for="password">Password :</label>
+                    <input type="password" id="password" class="input-field" placeholder="Enter your password">
+                </div>
+                
+                <div class="remember-me">
+                    <input type="checkbox" id="remember">
+                    <label for="remember">Remember for 30 days</label>
+                </div>
+                
+                <button type="submit" class="login-button" id="loginButton">Login</button>
+            </form>
             
             <div class="signup-link">
-                <p>Don't have an account? <a href="signup2.html">Signin</a></p>
+                <p>Don't have an account? <a href="signup.html">Signin</a></p>
             </div>
         </div>
     </div>
 
     <script>
-        document.querySelector('.login-button').addEventListener('click', function(e) {
-            e.preventDefault();
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get elements
+            const googleCheckbox = document.getElementById('google-login');
+            const emailField = document.getElementById('email');
+            const passwordField = document.getElementById('password');
+            const loginForm = document.getElementById('loginForm');
+            const loginButton = document.getElementById('loginButton');
+            const googleStatus = document.getElementById('googleStatus');
+            const rememberCheckbox = document.getElementById('remember');
             
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
+            // Google login checkbox toggle
+            googleCheckbox.addEventListener('change', function() {
+                if (this.checked) {
+                    // When Google login is selected
+                    emailField.disabled = true;
+                    passwordField.disabled = true;
+                    emailField.placeholder = "Using Google login";
+                    passwordField.placeholder = "Using Google login";
+                    emailField.value = ""; // Clear any entered values
+                    passwordField.value = ""; // Clear any entered values
+                    
+                    // Update UI
+                    loginButton.textContent = "Continue with Google";
+                    loginButton.classList.add('google-mode');
+                    googleStatus.classList.add('show');
+                    
+                    // Focus on the button for better UX
+                    loginButton.focus();
+                } else {
+                    // When Google login is not selected
+                    emailField.disabled = false;
+                    passwordField.disabled = false;
+                    emailField.placeholder = "Enter your email";
+                    passwordField.placeholder = "Enter your password";
+                    
+                    // Update UI
+                    loginButton.textContent = "Login";
+                    loginButton.classList.remove('google-mode');
+                    googleStatus.classList.remove('show');
+                    
+                    // Focus on email field for better UX
+                    emailField.focus();
+                }
+            });
             
-            if (!email || !password) {
-                alert('Please enter both email and password');
-                return;
+            // Form submission
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                if (googleCheckbox.checked) {
+                    // Google login flow
+                    handleGoogleLogin();
+                } else {
+                    // Email/password login flow
+                    handleEmailLogin();
+                }
+            });
+            
+            function handleGoogleLogin() {
+                // Visual feedback
+                const originalText = loginButton.textContent;
+                loginButton.textContent = "Redirecting to Google...";
+                loginButton.disabled = true;
+                
+                // Simulate API call delay
+                setTimeout(() => {
+                    alert("In a real application, this would redirect to Google OAuth for authentication.");
+                    
+                    // Reset button
+                    loginButton.textContent = originalText;
+                    loginButton.disabled = false;
+                    
+                    // In a real app, you would redirect to Google OAuth
+                    // window.location.href = 'https://accounts.google.com/o/oauth2/auth...';
+                    
+                    // For demo: simulate successful Google login
+                    console.log("Google login attempted");
+                    
+                    // Optionally submit the form to your backend
+                    // loginForm.submit();
+                }, 1500);
             }
             
-            console.log('Login attempt with:', {email, password});
-            alert('Login functionality would connect to backend in a real application');
+            function handleEmailLogin() {
+                const email = emailField.value.trim();
+                const password = passwordField.value.trim();
+                const remember = rememberCheckbox.checked;
+                
+                // Validation
+                if (!email || !password) {
+                    alert("Please enter both email and password.");
+                    
+                    // Highlight empty fields
+                    if (!email) {
+                        emailField.style.borderColor = "#ef4444";
+                        emailField.focus();
+                    }
+                    if (!password && email) {
+                        passwordField.style.borderColor = "#ef4444";
+                        passwordField.focus();
+                    }
+                    return;
+                }
+                
+                // Reset any error highlighting
+                emailField.style.borderColor = "";
+                passwordField.style.borderColor = "";
+                
+                // Validate email format
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    alert("Please enter a valid email address.");
+                    emailField.style.borderColor = "#ef4444";
+                    emailField.focus();
+                    return;
+                }
+                
+                // Visual feedback
+                loginButton.textContent = "Logging in...";
+                loginButton.disabled = true;
+                
+                // Simulate API call delay
+                setTimeout(() => {
+                    // Success message
+                    alert(`Login successful!\nEmail: ${email}\nRemember me: ${remember ? 'Yes (30 days)' : 'No'}`);
+                    
+                    // Reset button
+                    loginButton.textContent = "Login";
+                    loginButton.disabled = false;
+                    
+                    // In a real app, you would submit the form or make an API call
+                    console.log("Login attempt:", { email, remember });
+                    
+                    // Optionally submit the form to your backend
+                    // loginForm.submit();
+                    
+                    // For demo: clear form after successful login
+                    if (!remember) {
+                        emailField.value = "";
+                        passwordField.value = "";
+                        rememberCheckbox.checked = false;
+                    }
+                }, 1500);
+            }
+            
+            // Visual feedback for input fields
+            const inputFields = document.querySelectorAll('.input-field');
+            inputFields.forEach(field => {
+                // Remove error highlighting when user starts typing
+                field.addEventListener('input', function() {
+                    this.style.borderColor = "";
+                });
+                
+                // Animation on focus
+                field.addEventListener('focus', function() {
+                    if (!this.disabled) {
+                        this.parentElement.style.transform = 'translateY(-2px)';
+                    }
+                });
+                
+                field.addEventListener('blur', function() {
+                    this.parentElement.style.transform = 'translateY(0)';
+                });
+            });
+            
+            // Enter key to submit form
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' && !loginButton.disabled) {
+                    // Check if focus is not on the Google checkbox
+                    if (document.activeElement !== googleCheckbox) {
+                        loginForm.dispatchEvent(new Event('submit'));
+                    }
+                }
+            });
+            
+            // Initialize form state
+            emailField.focus();
         });
     </script>
 </body>
