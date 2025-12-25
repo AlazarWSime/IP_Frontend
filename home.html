@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Movie Review</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+        
+        body {
+            background-color: #0f1115;
+            color: #ffffff;
+            min-height: 100vh;
+        }
+        
+        .navbar {
+            background-color: #2A2E38;
+            padding: 0 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navdiv {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1400px;
+            margin: 0 auto;
+            height: 70px;
+        }
+        
+        /* Updated Logo Style - Now entirely red */
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #FF0000;
+            font-family: 'Impact', 'Arial Black', sans-serif;
+            letter-spacing: 1px;
+            cursor: default;
+            user-select: none;
+        }
+        
+        /* Navigation Links - Hidden on mobile, shown in burger menu */
+        .nav-links {
+            display: flex;
+            align-items: center;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-right: 25px;
+        }
+        
+        .nav-links li:last-child {
+            margin-right: 0;
+        }
+        
+        .nav-links li a {
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 8px 0;
+            position: relative;
+        }
+        
+        .nav-links li a:hover {
+            color: #FF0000;
+        }
+        
+        .nav-links li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: #FF0000;
+            left: 0;
+            bottom: 0;
+            transition: width 0.3s;
+        }
+        
+        .nav-links li a:hover::after {
+            width: 100%;
+        }
+        
+        /* Right section containing search and profile icons */
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        /* Search Icon as Link - Positioned next to profile icon */
+        .search-icon-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            color: #9CA3AF;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-radius: 50%;
+            background-color: transparent;
+        }
+        
+        .search-icon-link:hover {
+            color: #FF0000;
+            background-color: #3A3E48;
+            transform: scale(1.1);
+        }
+        
+        .search-icon-link i {
+            font-size: 1.2rem;
+        }
+        
+        /* Profile Section */
+        .profile-section {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .profile-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #3A3E48;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .profile-icon:hover {
+            background-color: #FF0000;
+            transform: scale(1.05);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Profile Dropdown */
+        .profile-dropdown {
+            position: absolute;
+            top: 50px;
+            right: 0;
+            background-color: #3A3E48;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            width: 200px;
+            padding: 10px 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s;
+            z-index: 100;
+        }
+        
+        .profile-section:hover .profile-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-item {
+            padding: 12px 20px;
+            color: white;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+        
+        .dropdown-item:hover {
+            background-color: #4A4E58;
+        }
+        
+        .dropdown-item i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .dropdown-divider {
+            height: 1px;
+            background-color: #4A4E58;
+            margin: 5px 0;
+        }
+        
+        /* Mobile Menu Button */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+            position: relative;
+            z-index: 1001;
+        }
+        
+        .menu-toggle span {
+            height: 3px;
+            width: 100%;
+            background-color: white;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+        
+        /* Burger Menu Content - The dropdown that appears */
+        .burger-menu-content {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100vh;
+            background-color: #2A2E38;
+            padding: 80px 30px 30px 30px;
+            transition: right 0.4s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+            box-shadow: -5px 0 25px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            overflow-y: auto;
+        }
+        
+        .burger-menu-content.active {
+            right: 0;
+        }
+        
+        .burger-menu-header {
+            color: white;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #FF0000;
+        }
+        
+        .burger-nav-links {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .burger-nav-links li {
+            margin-bottom: 15px;
+        }
+        
+        .burger-nav-links li a {
+            color: white;
+            font-size: 18px;
+            font-weight: 500;
+            display: block;
+            padding: 12px 15px;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        
+        .burger-nav-links li a:hover {
+            background-color: #3A3E48;
+            color: #FF0000;
+            padding-left: 20px;
+        }
+        
+        .burger-menu-footer {
+            color: #9CA3AF;
+            font-size: 14px;
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #3A3E48;
+        }
+        
+        /* Overlay when burger menu is open */
+        .burger-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 998;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+        
+        .burger-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* ========== HERO SLIDER STYLES ========== */
+        .hero {
+            position: relative;
+            height: 450px;
+            max-width: 1400px;
+            margin: 30px auto;
+            border-radius: 14px;
+            overflow: hidden;
+        }
+
+        .hero-slide {
+            position: absolute;
+            inset: 0;
+            background-image: var(--bg);
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transform: scale(1.08);
+            transition: opacity 1s ease, transform 1.2s ease;
+        }
+
+        .hero-slide.active {
+            opacity: 1;
+            transform: scale(1);
+            z-index: 1;
+        }
+
+        .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to right,
+                rgba(0,0,0,0.85),
+                rgba(0,0,0,0.25)
+            );
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            padding: 50px;
+            max-width: 520px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-content h1 {
+            font-size: 52px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .stats {
+            font-size: 14px;
+            color: #e5e7eb;
+            margin-bottom: 12px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .stars {
+            color: gold;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .play-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: none;
+            background: #ff0000;
+            color: white;
+            font-size: 22px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .play-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Navigation Arrows */
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.6);
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .nav-arrow:hover {
+            background-color: rgba(255, 0, 0, 0.8);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .prev-arrow {
+            left: 20px;
+        }
+
+        .next-arrow {
+            right: 20px;
+        }
+
+        /* Dots */
+        .dots {
+            position: absolute;
+            bottom: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 3;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #9ca3af;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .dot.active {
+            background: #ff0000;
+            transform: scale(1.2);
+        }
+        
+        /* ========== MOVIE GRID STYLES ========== */
+        
+        .main-content {
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            border-left: 4px solid #ff0000;
+            padding-left: 10px;
+        }
+        
+        .movie-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+        }
+        
+        .movie-card {
+            background-color: #1a1d24;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        
+        .movie-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+        }
+        
+        /* Image placeholder */
+        .poster-placeholder {
+            height: 260px;
+            background: linear-gradient(135deg, #2a2e38, #3a3e48);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9ca3af;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+        
+        .movie-info {
+            padding: 12px;
+        }
+        
+        .movie-title {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        
+        .movie-meta {
+            font-size: 13px;
+            color: #9ca3af;
+        }
+        
+        /* ========== RESPONSIVE DESIGN ========== */
+        
+        /* Tablets - Burger menu activates */
+        @media (max-width: 900px) {
+            /* Hide regular nav links on tablet and mobile */
+            .nav-links {
+                display: none;
+            }
+            
+            /* Show burger menu on tablet and mobile */
+            .menu-toggle {
+                display: flex;
+            }
+            
+            /* Animate hamburger to X when active */
+            .menu-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(6px, 6px);
+            }
+            
+            .menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .menu-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(6px, -6px);
+            }
+            
+            .nav-right {
+                gap: 10px;
+            }
+            
+            /* Hero slider adjustments for tablets */
+            .hero {
+                height: 380px;
+                margin: 20px auto;
+                border-radius: 10px;
+            }
+            
+            .hero-content {
+                padding: 30px;
+                max-width: 450px;
+            }
+            
+            .hero-content h1 {
+                font-size: 42px;
+            }
+            
+            .nav-arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+            }
+            
+            /* Movie grid adjustments for tablets */
+            .movie-grid {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+                gap: 15px;
+            }
+        }
+        
+        /* Large Phones */
+        @media (max-width: 600px) {
+            .navbar {
+                padding: 0 15px;
+            }
+            
+            .logo {
+                font-size: 24px;
+            }
+            
+            .search-icon-link {
+                width: 36px;
+                height: 36px;
+            }
+            
+            .search-icon-link i {
+                font-size: 1.1rem;
+            }
+            
+            .profile-icon {
+                width: 36px;
+                height: 36px;
+            }
+            
+            .burger-menu-content {
+                width: 100%;
+                padding: 80px 20px 30px 20px;
+            }
+            
+            .nav-right {
+                gap: 8px;
+            }
+            
+            /* Hero slider adjustments for mobile */
+            .hero {
+                height: 320px;
+                margin: 15px auto;
+                border-radius: 8px;
+            }
+            
+            .hero-content {
+                padding: 25px;
+                max-width: 350px;
+            }
+            
+            .hero-content h1 {
+                font-size: 36px;
+            }
+            
+            .stats {
+                font-size: 13px;
+            }
+            
+            .play-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 18px;
+            }
+            
+            .nav-arrow {
+                width: 35px;
+                height: 35px;
+                font-size: 18px;
+            }
+            
+            .prev-arrow {
+                left: 10px;
+            }
+            
+            .next-arrow {
+                right: 10px;
+            }
+            
+            /* Movie grid adjustments for mobile */
+            .main-content {
+                padding: 15px;
+            }
+            
+            .movie-grid {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+                gap: 12px;
+            }
+            
+            .poster-placeholder {
+                height: 200px;
+            }
+            
+            .section-title {
+                font-size: 20px;
+            }
+        }
+        
+        /* Medium Phones */
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 22px;
+            }
+            
+            .navdiv {
+                height: 60px;
+            }
+            
+            .profile-dropdown {
+                width: 180px;
+                top: 45px;
+            }
+            
+            .burger-menu-content {
+                padding: 70px 15px 25px 15px;
+            }
+            
+            .search-icon-link {
+                width: 34px;
+                height: 34px;
+            }
+            
+            .search-icon-link i {
+                font-size: 1rem;
+            }
+            
+            .profile-icon {
+                width: 34px;
+                height: 34px;
+            }
+            
+            .nav-right {
+                gap: 6px;
+            }
+            
+            /* Hero slider adjustments for medium phones */
+            .hero {
+                height: 280px;
+            }
+            
+            .hero-content {
+                padding: 20px;
+                max-width: 280px;
+            }
+            
+            .hero-content h1 {
+                font-size: 32px;
+            }
+            
+            .stats {
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            .nav-arrow {
+                width: 30px;
+                height: 30px;
+                font-size: 16px;
+            }
+            
+            /* Movie grid adjustments for medium phones */
+            .movie-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            
+            .poster-placeholder {
+                height: 180px;
+            }
+            
+            .movie-title {
+                font-size: 14px;
+            }
+        }
+        
+        /* Small Phones */
+        @media (max-width: 375px) {
+            .navbar {
+                padding: 0 10px;
+            }
+            
+            .logo {
+                font-size: 20px;
+            }
+            
+            .profile-icon {
+                width: 32px;
+                height: 32px;
+                font-size: 14px;
+            }
+            
+            .search-icon-link {
+                width: 32px;
+                height: 32px;
+            }
+            
+            .search-icon-link i {
+                font-size: 0.9rem;
+            }
+            
+            .nav-right {
+                gap: 5px;
+            }
+            
+            /* Hero slider adjustments for small phones */
+            .hero {
+                height: 250px;
+                margin: 10px auto;
+            }
+            
+            .hero-content {
+                padding: 15px;
+                max-width: 250px;
+            }
+            
+            .hero-content h1 {
+                font-size: 28px;
+            }
+            
+            .stars {
+                font-size: 16px;
+            }
+            
+            .play-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 16px;
+            }
+            
+            .nav-arrow {
+                width: 28px;
+                height: 28px;
+                font-size: 14px;
+            }
+            
+            /* Movie grid adjustments for small phones */
+            .movie-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            
+            .poster-placeholder {
+                height: 220px;
+            }
+        }
+        
+        /* Desktop - Show nav links, hide burger menu */
+        @media (min-width: 901px) {
+            .burger-menu-content {
+                display: none;
+            }
+            
+            .burger-overlay {
+                display: none;
+            }
+        }
+        
+        /* Landscape Mode */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .burger-menu-content {
+                padding: 70px 20px 20px 20px;
+                overflow-y: auto;
+            }
+            
+            .burger-nav-links li {
+                margin-bottom: 10px;
+            }
+            
+            .burger-nav-links li a {
+                padding: 10px 15px;
+                font-size: 16px;
+            }
+            
+            /* Hero slider adjustments for landscape */
+            .hero {
+                height: 300px;
+            }
+            
+            .hero-content {
+                padding: 30px;
+            }
+            
+            .hero-content h1 {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navdiv">
+            <!-- Logo - Now entirely red -->
+            <div class="logo">
+                REAL REVIEW
+            </div>
+            
+            <!-- Regular Navigation Links (Visible on desktop) - Only Home and Genre -->
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Genre</a></li>
+            </ul>
+            
+            <!-- Burger Menu Button -->
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <!-- Right section with search and profile icons -->
+            <div class="nav-right">
+                <!-- Search Icon Only (No search bar) -->
+                <a href="search.html" class="search-icon-link">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+                <!-- Profile Section -->
+                <div class="profile-section">
+                    <div class="profile-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="profile-dropdown">
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-user-circle"></i> My Profile
+                        </a>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-film"></i> My Reviews
+                        </a>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-heart"></i> Watchlist
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-cog"></i> Settings
+                        </a>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Burger Menu Content (Hidden by default, shown on mobile) -->
+    <div class="burger-menu-content" id="burgerMenuContent">
+        <h2 class="burger-menu-header">Menu</h2>
+        
+        <!-- Only Home and Genre in burger menu -->
+        <ul class="burger-nav-links">
+            <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#"><i class="fas fa-film"></i> Genre</a></li>
+        </ul>
+        
+        <div class="burger-menu-footer">
+            <p>© 2023 REAL REVIEW</p>
+            <p>All movie data provided by TMDB</p>
+        </div>
+    </div>
+    
+    <!-- Overlay when burger menu is open -->
+    <div class="burger-overlay" id="burgerOverlay"></div>
+    
+    <!-- Hero Slider with 5 movies -->
+    <section class="hero">
+        <!-- Slide 1 -->
+        <div class="hero-slide active" style="--bg:url('https://images.unsplash.com/photo-1531259683007-016a7b628fc3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2067&q=80')">
+            <div class="overlay"></div>
+            <div class="hero-content">
+                <h1>Aladin</h1>
+                <div class="stats">
+                    <span>44.8M • views</span>
+                    <span>9.5 (978 voted)</span>
+                </div>
+                <div class="stars">★ ★ ★ ★ ★</div>
+                <button class="play-btn">
+                    <i class="fas fa-play"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Slide 2 -->
+        <div class="hero-slide" style="--bg:url('https://images.unsplash.com/photo-1594909122845-11baa439b7bf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')">
+            <div class="overlay"></div>
+            <div class="hero-content">
+                <h1>Joker</h1>
+                <div class="stats">
+                    <span>39.1M • views</span>
+                    <span>9.0 (1.2k voted)</span>
+                </div>
+                <div class="stars">★ ★ ★ ★ ☆</div>
+                <button class="play-btn">
+                    <i class="fas fa-play"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Slide 3 -->
+        <div class="hero-slide" style="--bg:url('https://images.unsplash.com/photo-1595769812725-4c6564f7528b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')">
+            <div class="overlay"></div>
+            <div class="hero-content">
+                <h1>Interstellar</h1>
+                <div class="stats">
+                    <span>52.3M • views</span>
+                    <span>9.8 (2.1k voted)</span>
+                </div>
+                <div class="stars">★ ★ ★ ★ ★</div>
+                <button class="play-btn">
+                    <i class="fas fa-play"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Slide 4 -->
+        <div class="hero-slide" style="--bg:url('https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2025&q=80')">
+            <div class="overlay"></div>
+            <div class="hero-content">
+                <h1>Inception</h1>
+                <div class="stats">
+                    <span>48.7M • views</span>
+                    <span>9.3 (1.8k voted)</span>
+                </div>
+                <div class="stars">★ ★ ★ ★ ☆</div>
+                <button class="play-btn">
+                    <i class="fas fa-play"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Slide 5 -->
+        <div class="hero-slide" style="--bg:url('https://images.unsplash.com/photo-1635805737707-575885ab0820?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80')">
+            <div class="overlay"></div>
+            <div class="hero-content">
+                <h1>Spider-Man</h1>
+                <div class="stats">
+                    <span>61.2M • views</span>
+                    <span>9.6 (3.4k voted)</span>
+                </div>
+                <div class="stars">★ ★ ★ ★ ★</div>
+                <button class="play-btn">
+                    <i class="fas fa-play"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Navigation Arrows -->
+        <button class="nav-arrow prev-arrow">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="nav-arrow next-arrow">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        
+        <!-- Dots -->
+        <div class="dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </section>
+
+    <!-- Main Content - Movie Grid -->
+    <div class="main-content">
+        <!-- Top Rated Movies -->
+        <div class="section">
+            <h2 class="section-title">Top Rated Movies</h2>
+            <div class="movie-grid">
+                <div class="movie-card">
+                    <div class="poster-placeholder">POSTER</div>
+                    <div class="movie-info">
+                        <div class="movie-title">Raised by Wolves</div>
+                        <div class="movie-meta">2020 • 112min</div>
+                    </div>
+                </div>
+                <div class="movie-card">
+                    <div class="poster-placeholder">POSTER</div>
+                    <div class="movie-info">
+                        <div class="movie-title">Demon Hunter</div>
+                        <div class="movie-meta">2016 • 150min</div>
+                    </div>
+                </div>
+                <div class="movie-card">
+                    <div class="poster-placeholder">POSTER</div>
+                    <div class="movie-info">
+                        <div class="movie-title">Dragon</div>
+                        <div class="movie-meta">2025 • 130min</div>
+                    </div>
+                </div>
+                <div class="movie-card">
+                    <div class="poster-placeholder">POSTER</div>
+                    <div class="movie-info">
+                        <div class="movie-title">Interstellar</div>
+                        <div class="movie-meta">2014 • 169min</div>
+                    </div>
+                </div>
+                <div class="movie-card">
+                    <div class="poster-placeholder">POSTER</div>
+                    <div class="movie-info">
+                        <div class="movie-title">Inception</div>
+                        <div class="movie-meta">2010 • 148min</div>
+                    </div>
+                </div>
+                <div class="movie-card">
+                    <div class="poster-placeholder">POSTER</div>
+                    <div class="movie-info">
+                        <div class="movie-title">The Dark Knight</div>
+                        <div class="movie-meta">2008 • 152min</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Animation -->
+        <div class="section">
+            <h2 class="section-title">Animation</h2>
+            <div class="movie-grid">
+                <div class="movie-card">
+                    <div class="poster-placeholder">POSTER</div>
+                    <div class="movie-info">
+                        <div class="movie-title">Demon Slayer</div>
+                        <div class="movie-meta">2025 • 150min</div>
+                    </div>
+                </div>
+                <div class="movie-card">
+                    <div class="poster-placeholder">POSTER</div>
+                    <div class="movie-info">
+                        <div class="movie-title">Bad Guys</div>
+                        <div class="movie-meta">2022 • 110min</div>
+                    </div>
+                </div>
+                <div class="movie-card">
+                    <div class="poster-placeholder">POSTER</div>
+                    <div class="movie-info">
+                        <div class="movie-title">Shrek</div>
+                        <div class="movie-meta">2008 • 134min</div>
+                    </div>
+                </div>
+                <div class="movie-card">
+                    <div class="poster-placeholder">POSTER</div>
+                    <div class="movie-info">
+                        <div class="movie-title">Spider-Man: Into the Spider-Verse</div>
+                        <div class="movie-meta">2018 • 117min</div>
+                    </div>
+                </div>
+                <div class="movie-card">
+                    <div class="poster-placeholder">POSTER</div>
+                    <div class="movie-info">
+                        <div class="movie-title">Toy Story</div>
+                        <div class="movie-meta">1995 • 81min</div>
+                    </div>
+                </div>
+                <div class="movie-card">
+                    <div class="poster-placeholder">POSTER</div>
+                    <div class="movie-info">
+                        <div class="movie-title">Frozen</div>
+                        <div class="movie-meta">2013 • 102min</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action -->
+        <div class="section">
+            <h2 class="section-title">Action</h2>
+            <div class="movie-grid">
+                <div class="movie-card">
+                    <div class="poster-placeholder">POSTER</div>
+                    <div class="movie-info">
+                        <div class="movie-title">Black Panther</div>
+                        <div class="movie-meta">2018 • 134min</div>
+                    </div>
+                </div>
+                <div class="movie-card">
+                    <div class="poster-placeholder">POSTER</div>
+                    <div class="movie-info">
+                        <div class="movie-title">After</div>
+                        <div class="movie-meta">2015 • 114min</div>
+                    </div>
+                </div>
+                <div class="movie-card">
+                    <div class="poster-placeholder">POSTER</div>
+                    <div class="movie-info">
+                        <div class="movie-title">Joker</div>
+                        <div class="movie-meta">2019 • 122min</div>
+                    </div>
+                </div>
+                <div class="movie-card">
+                    <div class="poster-placeholder">POSTER</div>
+                    <div class="movie-info">
+                        <div class="movie-title">John Wick</div>
+                        <div class="movie-meta">2014 • 101min</div>
+                    </div>
+                </div>
+                <div class="movie-card">
+                    <div class="poster-placeholder">POSTER</div>
+                    <div class="movie-info">
+                        <div class="movie-title">Mission: Impossible</div>
+                        <div class="movie-meta">1996 • 110min</div>
+                    </div>
+                </div>
+                <div class="movie-card">
+                    <div class="poster-placeholder">POSTER</div>
+                    <div class="movie-info">
+                        <div class="movie-title">Mad Max: Fury Road</div>
+                        <div class="movie-meta">2015 • 120min</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get elements
+        const mobileMenu = document.getElementById('mobile-menu');
+        const burgerMenuContent = document.getElementById('burgerMenuContent');
+        const burgerOverlay = document.getElementById('burgerOverlay');
+        
+        // Toggle burger menu
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            burgerMenuContent.classList.toggle('active');
+            burgerOverlay.classList.toggle('active');
+            
+            // Prevent scrolling when menu is open
+            document.body.style.overflow = burgerMenuContent.classList.contains('active') ? 'hidden' : '';
+        });
+        
+        // Close burger menu when clicking on overlay
+        burgerOverlay.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            burgerMenuContent.classList.remove('active');
+            burgerOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+        
+        // Close burger menu when clicking on a link
+        document.querySelectorAll('.burger-nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                burgerMenuContent.classList.remove('active');
+                burgerOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+        
+        // Profile dropdown functionality
+        const profileSection = document.querySelector('.profile-section');
+        const profileDropdown = document.querySelector('.profile-dropdown');
+        
+        // Show dropdown on hover
+        profileSection.addEventListener('mouseenter', () => {
+            profileDropdown.style.opacity = '1';
+            profileDropdown.style.visibility = 'visible';
+            profileDropdown.style.transform = 'translateY(0)';
+        });
+        
+        // Hide dropdown when mouse leaves
+        profileSection.addEventListener('mouseleave', () => {
+            profileDropdown.style.opacity = '0';
+            profileDropdown.style.visibility = 'hidden';
+            profileDropdown.style.transform = 'translateY(-10px)';
+        });
+        
+        // Close dropdown when clicking on a dropdown item
+        document.querySelectorAll('.dropdown-item').forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                const itemText = item.textContent.trim();
+                alert(`Selected: ${itemText}`);
+                
+                // Close dropdown
+                profileDropdown.style.opacity = '0';
+                profileDropdown.style.visibility = 'hidden';
+                profileDropdown.style.transform = 'translateY(-10px)';
+            });
+        });
+        
+        // Close burger menu with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && burgerMenuContent.classList.contains('active')) {
+                mobileMenu.classList.remove('active');
+                burgerMenuContent.classList.remove('active');
+                burgerOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+        
+        // Logo does nothing - no longer a link, just text
+        document.querySelector('.logo').addEventListener('click', (e) => {
+            e.preventDefault();
+        });
+        
+        // Make movie cards clickable
+        document.querySelectorAll('.movie-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const title = card.querySelector('.movie-title').textContent;
+                alert(`You clicked on: ${title}\nThis would navigate to the movie details page.`);
+            });
+        });
+        
+        // ========== HERO SLIDER FUNCTIONALITY ==========
+        const heroSlides = document.querySelectorAll('.hero-slide');
+        const heroDots = document.querySelectorAll('.dot');
+        const heroPlayButtons = document.querySelectorAll('.play-btn');
+        const prevArrow = document.querySelector('.prev-arrow');
+        const nextArrow = document.querySelector('.next-arrow');
+        
+        let currentHeroIndex = 0;
+        let heroInterval;
+        
+        // Function to show a specific slide
+        function showHeroSlide(index) {
+            // Ensure index is within bounds
+            if (index < 0) {
+                index = heroSlides.length - 1;
+            } else if (index >= heroSlides.length) {
+                index = 0;
+            }
+            
+            // Hide all slides
+            heroSlides.forEach(slide => {
+                slide.classList.remove('active');
+            });
+            
+            // Update all dots
+            heroDots.forEach(dot => {
+                dot.classList.remove('active');
+            });
+            
+            // Show the selected slide and activate its dot
+            heroSlides[index].classList.add('active');
+            heroDots[index].classList.add('active');
+            
+            currentHeroIndex = index;
+        }
+        
+        // Function to go to next slide
+        function nextSlide() {
+            clearInterval(heroInterval);
+            showHeroSlide(currentHeroIndex + 1);
+            startAutoSlide();
+        }
+        
+        // Function to go to previous slide
+        function prevSlide() {
+            clearInterval(heroInterval);
+            showHeroSlide(currentHeroIndex - 1);
+            startAutoSlide();
+        }
+        
+        // Function to start auto-slide
+        function startAutoSlide() {
+            heroInterval = setInterval(() => {
+                nextSlide();
+            }, 5000);
+        }
+        
+        // Initialize the slider
+        showHeroSlide(0);
+        startAutoSlide();
+        
+        // Arrow navigation
+        prevArrow.addEventListener('click', prevSlide);
+        nextArrow.addEventListener('click', nextSlide);
+        
+        // Dot navigation
+        heroDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                clearInterval(heroInterval);
+                showHeroSlide(index);
+                startAutoSlide();
+            });
+        });
+        
+        // Play button functionality
+        heroPlayButtons.forEach((button, index) => {
+            button.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const movieTitle = heroSlides[index].querySelector('h1').textContent;
+                alert(`Playing: ${movieTitle}`);
+            });
+        });
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                prevSlide();
+            } else if (e.key === 'ArrowRight') {
+                nextSlide();
+            }
+        });
+        
+        // Pause auto-slide on hover
+        const heroSection = document.querySelector('.hero');
+        heroSection.addEventListener('mouseenter', () => {
+            clearInterval(heroInterval);
+        });
+        
+        heroSection.addEventListener('mouseleave', () => {
+            startAutoSlide();
+        });
+        
+        // Touch/swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        heroSection.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+        
+        heroSection.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+        
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            
+            if (touchStartX - touchEndX > swipeThreshold) {
+                // Swipe left - next slide
+                nextSlide();
+            } else if (touchEndX - touchStartX > swipeThreshold) {
+                // Swipe right - previous slide
+                prevSlide();
+            }
+        }
+    </script>
+</body>
+</html>
