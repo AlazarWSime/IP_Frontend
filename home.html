@@ -367,20 +367,35 @@
             margin-bottom: 20px;
         }
 
+        /* Center Play Button */
+        .center-play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 3;
+        }
+
         .play-btn {
-            width: 60px;
-            height: 60px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             border: none;
-            background: #ff0000;
+            background: rgba(255, 0, 0, 0.9);
             color: white;
-            font-size: 22px;
+            font-size: 28px;
             cursor: pointer;
-            transition: transform 0.3s;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.5);
         }
 
         .play-btn:hover {
             transform: scale(1.1);
+            background: #ff0000;
+            box-shadow: 0 0 40px rgba(255, 0, 0, 0.7);
         }
 
         /* Navigation Arrows */
@@ -555,6 +570,12 @@
                 font-size: 42px;
             }
             
+            .play-btn {
+                width: 70px;
+                height: 70px;
+                font-size: 24px;
+            }
+            
             .nav-arrow {
                 width: 40px;
                 height: 40px;
@@ -622,9 +643,9 @@
             }
             
             .play-btn {
-                width: 50px;
-                height: 50px;
-                font-size: 18px;
+                width: 60px;
+                height: 60px;
+                font-size: 20px;
             }
             
             .nav-arrow {
@@ -716,6 +737,12 @@
                 gap: 5px;
             }
             
+            .play-btn {
+                width: 55px;
+                height: 55px;
+                font-size: 18px;
+            }
+            
             .nav-arrow {
                 width: 30px;
                 height: 30px;
@@ -786,8 +813,8 @@
             }
             
             .play-btn {
-                width: 45px;
-                height: 45px;
+                width: 50px;
+                height: 50px;
                 font-size: 16px;
             }
             
@@ -846,6 +873,12 @@
             
             .hero-content h1 {
                 font-size: 36px;
+            }
+            
+            .play-btn {
+                width: 60px;
+                height: 60px;
+                font-size: 22px;
             }
         }
     </style>
@@ -938,7 +971,10 @@
                     <span>9.5 (978 voted)</span>
                 </div>
                 <div class="stars">★ ★ ★ ★ ★</div>
-                <button class="play-btn">
+            </div>
+            <!-- Play Button in Center -->
+            <div class="center-play-btn">
+                <button class="play-btn" data-movie="Aladin">
                     <i class="fas fa-play"></i>
                 </button>
             </div>
@@ -954,7 +990,10 @@
                     <span>9.0 (1.2k voted)</span>
                 </div>
                 <div class="stars">★ ★ ★ ★ ☆</div>
-                <button class="play-btn">
+            </div>
+            <!-- Play Button in Center -->
+            <div class="center-play-btn">
+                <button class="play-btn" data-movie="Joker">
                     <i class="fas fa-play"></i>
                 </button>
             </div>
@@ -970,7 +1009,10 @@
                     <span>9.8 (2.1k voted)</span>
                 </div>
                 <div class="stars">★ ★ ★ ★ ★</div>
-                <button class="play-btn">
+            </div>
+            <!-- Play Button in Center -->
+            <div class="center-play-btn">
+                <button class="play-btn" data-movie="Interstellar">
                     <i class="fas fa-play"></i>
                 </button>
             </div>
@@ -986,7 +1028,10 @@
                     <span>9.3 (1.8k voted)</span>
                 </div>
                 <div class="stars">★ ★ ★ ★ ☆</div>
-                <button class="play-btn">
+            </div>
+            <!-- Play Button in Center -->
+            <div class="center-play-btn">
+                <button class="play-btn" data-movie="Inception">
                     <i class="fas fa-play"></i>
                 </button>
             </div>
@@ -1002,7 +1047,10 @@
                     <span>9.6 (3.4k voted)</span>
                 </div>
                 <div class="stars">★ ★ ★ ★ ★</div>
-                <button class="play-btn">
+            </div>
+            <!-- Play Button in Center -->
+            <div class="center-play-btn">
+                <button class="play-btn" data-movie="Spider-Man">
                     <i class="fas fa-play"></i>
                 </button>
             </div>
@@ -1339,12 +1387,24 @@
             });
         });
         
-        // Play button functionality
-        heroPlayButtons.forEach((button, index) => {
+        // Play button functionality - now centered on the image
+        heroPlayButtons.forEach((button) => {
             button.addEventListener('click', (e) => {
                 e.stopPropagation();
-                const movieTitle = heroSlides[index].querySelector('h1').textContent;
-                alert(`Playing: ${movieTitle}`);
+                const movieTitle = button.getAttribute('data-movie');
+                alert(`Now playing: ${movieTitle}`);
+                
+                // Add a visual feedback for playing
+                button.innerHTML = '<i class="fas fa-pause"></i>';
+                button.style.background = '#00ff00';
+                button.style.boxShadow = '0 0 40px rgba(0, 255, 0, 0.7)';
+                
+                // Reset after 3 seconds (simulating playback)
+                setTimeout(() => {
+                    button.innerHTML = '<i class="fas fa-play"></i>';
+                    button.style.background = 'rgba(255, 0, 0, 0.9)';
+                    button.style.boxShadow = '0 0 30px rgba(255, 0, 0, 0.5)';
+                }, 3000);
             });
         });
         
@@ -1354,6 +1414,13 @@
                 prevSlide();
             } else if (e.key === 'ArrowRight') {
                 nextSlide();
+            } else if (e.key === ' ' || e.key === 'Spacebar') {
+                // Spacebar to play the current movie
+                e.preventDefault();
+                const currentPlayButton = document.querySelector('.hero-slide.active .play-btn');
+                if (currentPlayButton) {
+                    currentPlayButton.click();
+                }
             }
         });
         
