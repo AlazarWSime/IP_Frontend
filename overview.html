@@ -1,0 +1,2006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>K-POP DEMON HUNTERS - Movie Review</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+        
+        body {
+            background-color: #0f0f0f;
+            color: #fff;
+            min-height: 100vh;
+            line-height: 1.5;
+        }
+        
+        /* ===== HEADER/NAVBAR STYLES ===== */
+        .navbar {
+            background-color: #2A2E38;
+            padding: 0 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navdiv {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1400px;
+            margin: 0 auto;
+            height: 70px;
+        }
+        
+        /* Logo Style */
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #FF0000;
+            font-family: 'Impact', 'Arial Black', sans-serif;
+            letter-spacing: 1px;
+            cursor: default;
+            user-select: none;
+        }
+        
+        /* Navigation Links - Hidden on mobile, shown in burger menu */
+        .nav-links {
+            display: flex;
+            align-items: center;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-right: 25px;
+        }
+        
+        .nav-links li:last-child {
+            margin-right: 0;
+        }
+        
+        .nav-links li a {
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 8px 0;
+            position: relative;
+        }
+        
+        .nav-links li a:hover {
+            color: #FF0000;
+        }
+        
+        .nav-links li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: #FF0000;
+            left: 0;
+            bottom: 0;
+            transition: width 0.3s;
+        }
+        
+        .nav-links li a:hover::after {
+            width: 100%;
+        }
+        
+        /* Right section containing search and profile icons */
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        /* Search Icon as Link - Positioned next to profile icon */
+        .search-icon-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            color: #9CA3AF;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-radius: 50%;
+            background-color: transparent;
+        }
+        
+        .search-icon-link:hover {
+            color: #FF0000;
+            background-color: #3A3E48;
+            transform: scale(1.1);
+        }
+        
+        .search-icon-link i {
+            font-size: 1.2rem;
+        }
+        
+        /* Profile Section */
+        .profile-section {
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .profile-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #3A3E48;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .profile-icon:hover {
+            background-color: #FF0000;
+            transform: scale(1.05);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Profile Dropdown */
+        .profile-dropdown {
+            position: absolute;
+            top: 50px;
+            right: 0;
+            background-color: #3A3E48;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            width: 200px;
+            padding: 10px 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s;
+            z-index: 100;
+        }
+        
+        .profile-section:hover .profile-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-item {
+            padding: 12px 20px;
+            color: white;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+        
+        .dropdown-item:hover {
+            background-color: #4A4E58;
+        }
+        
+        .dropdown-item i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .dropdown-divider {
+            height: 1px;
+            background-color: #4A4E58;
+            margin: 5px 0;
+        }
+        
+        /* Mobile Menu Button */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+            position: relative;
+            z-index: 1001;
+        }
+        
+        .menu-toggle span {
+            height: 3px;
+            width: 100%;
+            background-color: white;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+        
+        /* Burger Menu Content - The dropdown that appears */
+        .burger-menu-content {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100vh;
+            background-color: #2A2E38;
+            padding: 80px 30px 30px 30px;
+            transition: right 0.4s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+            box-shadow: -5px 0 25px rgba(0, 0, 0, 0.2);
+            z-index: 999;
+            overflow-y: auto;
+        }
+        
+        .burger-menu-content.active {
+            right: 0;
+        }
+        
+        .burger-menu-header {
+            color: white;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #FF0000;
+        }
+        
+        .burger-nav-links {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .burger-nav-links li {
+            margin-bottom: 15px;
+        }
+        
+        .burger-nav-links li a {
+            color: white;
+            font-size: 18px;
+            font-weight: 500;
+            display: block;
+            padding: 12px 15px;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        
+        .burger-nav-links li a:hover {
+            background-color: #3A3E48;
+            color: #FF0000;
+            padding-left: 20px;
+        }
+        
+        .burger-menu-footer {
+            color: #9CA3AF;
+            font-size: 14px;
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #3A3E48;
+        }
+        
+        /* Overlay when burger menu is open */
+        .burger-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 998;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+        
+        .burger-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* ===== MOVIE DETAIL PAGE STYLES ===== */
+        
+        /* HERO SECTION - UPDATED FOR CENTERED PLAY BUTTON */
+        .hero {
+            height: 400px;
+            background: 
+                linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.9)),
+                url('https://images.unsplash.com/photo-1516280440614-37939bbacd81?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') center/cover;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 20px;
+        }
+
+        .hero-content {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* CENTERED PLAY BUTTON */
+        .play-btn-container {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+        }
+
+        .play-btn {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: rgba(255, 0, 92, 0.9);
+            border: 3px solid white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 5px 30px rgba(255, 0, 92, 0.7);
+            transition: all 0.3s;
+            font-size: 36px;
+            color: white;
+            position: relative;
+            margin: 0 auto;
+        }
+
+        .play-btn:hover {
+            background: #ff005c;
+            transform: scale(1.15);
+            box-shadow: 0 8px 40px rgba(255, 0, 92, 0.9);
+        }
+
+        /* Optional: Add a pulsating animation to the play button */
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 0, 92, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(255, 0, 92, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 0, 92, 0);
+            }
+        }
+
+        .play-btn::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(1.1);
+            z-index: -1;
+            animation: pulse 2s infinite;
+        }
+
+        /* ===== CONTENT ===== */
+        .content {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .title {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            color: white;
+        }
+
+        .subtitle {
+            color: #aaa;
+            font-size: 14px;
+            margin-bottom: 20px;
+            font-weight: normal;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .stars {
+            color: gold;
+            font-size: 18px;
+            letter-spacing: 2px;
+        }
+
+        .rating-text {
+            font-size: 16px;
+            color: #ddd;
+        }
+
+        /* ===== ACTIONS WITH PLAIN COLOR ICONS ===== */
+        .actions {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            max-width: 400px;
+        }
+
+        .action {
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            padding: 10px;
+            border-radius: 8px;
+            flex: 1;
+            max-width: 80px;
+        }
+
+        .action:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .action-icon {
+            font-size: 22px;
+            margin-bottom: 8px;
+            display: block;
+            color: #aaa; /* Default color for icons */
+        }
+
+        /* Specific colors for each action icon */
+        .action:nth-child(1) .action-icon {
+            color: #FF9800; /* Orange for Add List */
+        }
+        
+        .action:nth-child(2) .action-icon {
+            color: #4CAF50; /* Green for Review */
+        }
+        
+        .action:nth-child(3) .action-icon {
+            color: #2196F3; /* Blue for Share */
+        }
+        
+        .action:nth-child(4) .action-icon {
+            color: #F44336; /* Red for Report */
+        }
+
+        /* Hover colors - match the main color scheme */
+        .action:nth-child(1):hover .action-icon {
+            color: #FFB74D; /* Lighter orange on hover */
+        }
+        
+        .action:nth-child(2):hover .action-icon {
+            color: #66BB6A; /* Lighter green on hover */
+        }
+        
+        .action:nth-child(3):hover .action-icon {
+            color: #64B5F6; /* Lighter blue on hover */
+        }
+        
+        .action:nth-child(4):hover .action-icon {
+            color: #EF5350; /* Lighter red on hover */
+        }
+
+        .action-text {
+            font-size: 13px;
+            color: #aaa;
+        }
+
+        /* ===== TABS ===== */
+        .tabs-container {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #333;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 30px;
+            margin-bottom: -1px;
+        }
+
+        .tab {
+            padding: 15px 0;
+            cursor: pointer;
+            color: #aaa;
+            font-weight: 600;
+            font-size: 16px;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .tab.active {
+            color: #ff005c;
+            border-bottom: 3px solid #ff005c;
+        }
+
+        /* ===== SECTIONS ===== */
+        .section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* ===== OVERVIEW SECTION ===== */
+        .overview-content {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #ddd;
+            margin-bottom: 30px;
+        }
+
+        /* ===== OTHER INFORMATION SECTION ===== */
+        .info-section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            margin: 25px 0 15px;
+            font-weight: 700;
+            font-size: 20px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-title .see-all {
+            font-size: 14px;
+            color: #ff005c;
+            cursor: pointer;
+            font-weight: normal;
+        }
+
+        /* ===== CASTS ===== */
+        .cast-row {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding: 10px 0;
+            scrollbar-width: thin;
+            scrollbar-color: #ff005c #333;
+        }
+
+        .cast-row::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .cast-row::-webkit-scrollbar-track {
+            background: #333;
+            border-radius: 3px;
+        }
+
+        .cast-row::-webkit-scrollbar-thumb {
+            background: #ff005c;
+            border-radius: 3px;
+        }
+
+        .cast {
+            min-width: 100px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .cast-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            object-fit: cover;
+            border: 2px solid #333;
+            transition: all 0.3s;
+        }
+
+        .cast:hover .cast-image {
+            border-color: #ff005c;
+            transform: scale(1.05);
+        }
+
+        .cast-name {
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .cast-character {
+            font-size: 12px;
+            color: #aaa;
+        }
+
+        /* ===== HORIZONTAL REVIEWS SECTION ===== */
+        .reviews-container {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding: 15px 0;
+            scrollbar-width: thin;
+            scrollbar-color: #ff005c #333;
+            margin-bottom: 10px;
+        }
+
+        .reviews-container::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .reviews-container::-webkit-scrollbar-track {
+            background: #333;
+            border-radius: 3px;
+        }
+
+        .reviews-container::-webkit-scrollbar-thumb {
+            background: #ff005c;
+            border-radius: 3px;
+        }
+
+        .review-card {
+            min-width: 280px;
+            max-width: 320px;
+            background: #1a1a1a;
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 4px solid #ff005c;
+            display: flex;
+            flex-direction: column;
+            flex-shrink: 0;
+            transition: all 0.3s;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .review-profile {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .profile-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #ff005c;
+            margin-right: 12px;
+        }
+
+        .profile-info {
+            flex: 1;
+        }
+
+        .profile-name {
+            font-weight: 600;
+            font-size: 16px;
+            color: white;
+        }
+
+        .prodate {
+            font-size: 12px;
+            color: #aaa;
+            margin-top: 3px;
+        }
+
+        .review-rating {
+            color: gold;
+            font-size: 14px;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .review-text {
+            font-size: 14px;
+            color: #ddd;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            flex: 1;
+        }
+
+        .review-stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #333;
+            padding-top: 15px;
+            margin-top: 10px;
+        }
+
+        .review-likes {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #aaa;
+        }
+
+        .like-btn {
+            background: none;
+            border: none;
+            color: #aaa;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .like-btn:hover {
+            color: #ff005c;
+        }
+
+        .like-btn.liked {
+            color: #ff005c;
+        }
+
+        .review-replies {
+            font-size: 14px;
+            color: #aaa;
+        }
+
+        /* ===== RELATED ===== */
+        .related-row {
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            padding: 10px 0;
+        }
+
+        .related-item {
+            min-width: 150px;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s;
+            flex-shrink: 0;
+        }
+
+        .related-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .related-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .related-title {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            padding: 15px 10px 10px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        /* ===== GENRE SECTION ===== */
+        .genre-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .genre-tag {
+            background: rgba(255, 0, 92, 0.2);
+            color: #ff005c;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            border: 1px solid rgba(255, 0, 92, 0.3);
+        }
+
+        /* ===== ADD REVIEW FORM ===== */
+        .add-review {
+            background: #1a1a1a;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .add-review-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .review-input-group {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .user-avatar-small {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #ff005c;
+        }
+
+        .review-input {
+            flex: 1;
+            background: #2a2a2a;
+            border: 1px solid #444;
+            border-radius: 8px;
+            padding: 12px 15px;
+            color: white;
+            font-size: 14px;
+            resize: vertical;
+            min-height: 80px;
+            font-family: inherit;
+        }
+
+        .review-input:focus {
+            outline: none;
+            border-color: #ff005c;
+        }
+
+        .rating-selector {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .rating-selector span {
+            font-size: 14px;
+            color: #aaa;
+        }
+
+        .star-selector {
+            display: flex;
+            gap: 5px;
+        }
+
+        .star-selector .star {
+            font-size: 20px;
+            color: #444;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .star-selector .star.selected {
+            color: gold;
+        }
+
+        .star-selector .star:hover {
+            color: gold;
+            transform: scale(1.2);
+        }
+
+        .review-submit-btn {
+            background: #ff005c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            float: right;
+        }
+
+        .review-submit-btn:hover {
+            background: #e00050;
+            transform: translateY(-2px);
+        }
+        
+        /* ===== FOOTER STYLES ===== */
+        .site-footer {
+            background-color: #2A2E38;
+            color: #ffffff;
+            padding: 60px 0 30px;
+            margin-top: 50px;
+            border-top: 1px solid #3A3E48;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        /* Left Section */
+        .footer-left {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .footer-logo {
+            font-size: 32px;
+            font-weight: 700;
+            color: #FF0000;
+            font-family: 'Impact', 'Arial Black', sans-serif;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            display: inline-block;
+            cursor: default;
+            user-select: none;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            margin-top: 15px;
+        }
+
+        .footer-links li a {
+            color: #9CA3AF;
+            font-size: 15px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s;
+            padding: 5px 0;
+            position: relative;
+        }
+
+        .footer-links li a:hover {
+            color: #FF0000;
+        }
+
+        .footer-links li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: #FF0000;
+            left: 0;
+            bottom: 0;
+            transition: width 0.3s;
+        }
+
+        .footer-links li a:hover::after {
+            width: 100%;
+        }
+
+        /* Right Section */
+        .footer-right {
+            text-align: right;
+            min-width: 300px;
+        }
+
+        .footer-tmdb {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .tmdb-logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: #FF0000;
+            letter-spacing: 1px;
+        }
+
+        .footer-description {
+            color: #9CA3AF;
+            font-size: 14px;
+            line-height: 1.6;
+            max-width: 400px;
+            margin-left: auto;
+        }
+
+        /* Copyright */
+        .footer-bottom {
+            border-top: 1px solid #3A3E48;
+            padding-top: 25px;
+            text-align: center;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+
+        .copyright {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        /* ===== RESPONSIVE DESIGN ===== */
+        
+        /* Tablets - Burger menu activates */
+        @media (max-width: 900px) {
+            /* Hide regular nav links on tablet and mobile */
+            .nav-links {
+                display: none;
+            }
+            
+            /* Show burger menu on tablet and mobile */
+            .menu-toggle {
+                display: flex;
+            }
+            
+            /* Animate hamburger to X when active */
+            .menu-toggle.active span:nth-child(1) {
+                transform: rotate(45deg) translate(6px, 6px);
+            }
+            
+            .menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .menu-toggle.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(6px, -6px);
+            }
+            
+            .nav-right {
+                gap: 10px;
+            }
+            
+            /* Movie page adjustments for tablets */
+            .hero {
+                height: 350px;
+            }
+            
+            .play-btn {
+                width: 80px;
+                height: 80px;
+                font-size: 32px;
+            }
+            
+            .title {
+                font-size: 24px;
+            }
+            
+            .tabs {
+                gap: 20px;
+            }
+            
+            .tab {
+                font-size: 15px;
+            }
+            
+            .section-title {
+                font-size: 18px;
+            }
+            
+            .review-card {
+                min-width: 260px;
+            }
+            
+            /* Footer adjustments for tablets */
+            .footer-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+
+            .footer-right {
+                text-align: left;
+            }
+
+            .footer-tmdb {
+                justify-content: flex-start;
+            }
+
+            .footer-description {
+                margin-left: 0;
+            }
+        }
+        
+        /* Large Phones */
+        @media (max-width: 600px) {
+            .navbar {
+                padding: 0 15px;
+            }
+            
+            .logo {
+                font-size: 24px;
+            }
+            
+            .search-icon-link {
+                width: 36px;
+                height: 36px;
+            }
+            
+            .search-icon-link i {
+                font-size: 1.1rem;
+            }
+            
+            .profile-icon {
+                width: 36px;
+                height: 36px;
+            }
+            
+            .burger-menu-content {
+                width: 100%;
+                padding: 80px 20px 30px 20px;
+            }
+            
+            .nav-right {
+                gap: 8px;
+            }
+            
+            /* Movie page adjustments for mobile */
+            .hero {
+                height: 300px;
+            }
+            
+            .play-btn {
+                width: 70px;
+                height: 70px;
+                font-size: 28px;
+            }
+            
+            .content {
+                padding: 15px;
+            }
+            
+            .title {
+                font-size: 22px;
+            }
+            
+            .actions {
+                max-width: 100%;
+            }
+            
+            .action {
+                max-width: 70px;
+            }
+            
+            .tabs {
+                gap: 15px;
+            }
+            
+            .tab {
+                font-size: 14px;
+                padding: 12px 0;
+            }
+            
+            .review-card {
+                min-width: 240px;
+            }
+            
+            /* Footer adjustments for mobile */
+            .site-footer {
+                padding: 40px 0 20px;
+                margin-top: 30px;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .footer-logo {
+                font-size: 28px;
+            }
+
+            .tmdb-logo {
+                font-size: 20px;
+            }
+
+            .footer-description {
+                font-size: 13px;
+            }
+
+            .copyright {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+        
+        /* Medium Phones */
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 22px;
+            }
+            
+            .navdiv {
+                height: 60px;
+            }
+            
+            .profile-dropdown {
+                width: 180px;
+                top: 45px;
+            }
+            
+            .burger-menu-content {
+                padding: 70px 15px 25px 15px;
+            }
+            
+            .search-icon-link {
+                width: 34px;
+                height: 34px;
+            }
+            
+            .search-icon-link i {
+                font-size: 1rem;
+            }
+            
+            .profile-icon {
+                width: 34px;
+                height: 34px;
+            }
+            
+            .nav-right {
+                gap: 6px;
+            }
+            
+            /* Movie page adjustments for medium phones */
+            .hero {
+                height: 250px;
+            }
+            
+            .play-btn {
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+            }
+            
+            .title {
+                font-size: 20px;
+            }
+            
+            .actions {
+                max-width: 100%;
+            }
+            
+            .action {
+                max-width: 65px;
+                padding: 8px;
+            }
+            
+            .action-icon {
+                font-size: 18px;
+            }
+            
+            .action-text {
+                font-size: 12px;
+            }
+            
+            /* Footer adjustments for medium phones */
+            .footer-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .footer-logo {
+                font-size: 24px;
+            }
+        }
+        
+        /* Small Phones */
+        @media (max-width: 375px) {
+            .navbar {
+                padding: 0 10px;
+            }
+            
+            .logo {
+                font-size: 20px;
+            }
+            
+            .profile-icon {
+                width: 32px;
+                height: 32px;
+                font-size: 14px;
+            }
+            
+            .search-icon-link {
+                width: 32px;
+                height: 32px;
+            }
+            
+            .search-icon-link i {
+                font-size: 0.9rem;
+            }
+            
+            .nav-right {
+                gap: 5px;
+            }
+            
+            /* Movie page adjustments for small phones */
+            .hero {
+                height: 220px;
+            }
+            
+            .play-btn {
+                width: 55px;
+                height: 55px;
+                font-size: 20px;
+            }
+            
+            .content {
+                padding: 12px;
+            }
+            
+            .title {
+                font-size: 18px;
+            }
+            
+            .subtitle {
+                font-size: 12px;
+            }
+            
+            .review-card {
+                min-width: 220px;
+                padding: 15px;
+            }
+        }
+        
+        /* Desktop - Show nav links, hide burger menu */
+        @media (min-width: 901px) {
+            .burger-menu-content {
+                display: none;
+            }
+            
+            .burger-overlay {
+                display: none;
+            }
+        }
+        
+        /* Landscape Mode */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .burger-menu-content {
+                padding: 70px 20px 20px 20px;
+                overflow-y: auto;
+            }
+            
+            .burger-nav-links li {
+                margin-bottom: 10px;
+            }
+            
+            .burger-nav-links li a {
+                padding: 10px 15px;
+                font-size: 16px;
+            }
+            
+            /* Hero adjustments for landscape */
+            .hero {
+                height: 300px;
+            }
+            
+            .play-btn {
+                width: 70px;
+                height: 70px;
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navdiv">
+            <!-- Logo -->
+            <div class="logo">
+                REAL REVIEW
+            </div>
+            
+            <!-- Regular Navigation Links (Visible on desktop) -->
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="genre.html">Genre</a></li>
+            </ul>
+            
+            <!-- Burger Menu Button -->
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <!-- Right section with search and profile icons -->
+            <div class="nav-right">
+                <!-- Search Icon Only (No search bar) -->
+                <a href="search.html" class="search-icon-link">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+                <!-- Profile Section -->
+                <div class="profile-section">
+                    <div class="profile-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="profile-dropdown">
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-user-circle"></i> My Profile
+                        </a>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-film"></i> My Reviews
+                        </a>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-heart"></i> Watchlist
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-cog"></i> Settings
+                        </a>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Burger Menu Content (Hidden by default, shown on mobile) -->
+    <div class="burger-menu-content" id="burgerMenuContent">
+        <h2 class="burger-menu-header">Menu</h2>
+        
+        <!-- Navigation links in burger menu -->
+        <ul class="burger-nav-links">
+            <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="genre.html"><i class="fas fa-film"></i> Genre</a></li>
+        </ul>
+        
+        <div class="burger-menu-footer">
+            <p>© 2023 REAL REVIEW</p>
+            <p>All movie data provided by TMDB</p>
+        </div>
+    </div>
+    
+    <!-- Overlay when burger menu is open -->
+    <div class="burger-overlay" id="burgerOverlay"></div>
+
+    <!-- HERO SECTION -->
+    <div class="hero">
+        <div class="hero-content">
+            <!-- CENTERED PLAY BUTTON -->
+            <div class="play-btn-container">
+                <div class="play-btn">▶</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="content">
+        <h1 class="title">K-POP DEMON HUNTERS</h1>
+        <div class="subtitle">Action, Horror, Music • 2023 • 1h 48m</div>
+        
+        <div class="rating">
+            <div class="stars">★★★★☆</div>
+            <div class="rating-text">9.5 / 10 (1.2k reviews)</div>
+        </div>
+        
+        <!-- ACTION BUTTONS WITH PLAIN COLOR ICONS -->
+        <div class="actions">
+            <div class="action">
+                <span class="action-icon"><i class="fas fa-bookmark"></i></span>
+                <div class="action-text">Add list</div>
+            </div>
+            <div class="action">
+                <span class="action-icon"><i class="fas fa-edit"></i></span>
+                <div class="action-text">Review</div>
+            </div>
+            <div class="action">
+                <span class="action-icon"><i class="fas fa-share-alt"></i></span>
+                <div class="action-text">Share</div>
+            </div>
+            <div class="action">
+                <span class="action-icon"><i class="fas fa-flag"></i></span>
+                <div class="action-text">Report</div>
+            </div>
+        </div>
+        
+        <!-- TABS -->
+        <div class="tabs-container">
+            <div class="tabs">
+                <div class="tab active" onclick="switchTab('overview')">Overview</div>
+                <div class="tab" onclick="switchTab('info')">Other Information</div>
+            </div>
+        </div>
+        
+        <!-- OVERVIEW SECTION -->
+        <div id="overview" class="section active">
+            <div class="overview-content">
+                When K-pop superstars Rumi, Mira and Zoey aren't selling out stadiums or topping the Billboard charts, they're moonlighting as demon hunters to protect their fans from ever-present supernatural danger. This action-packed thriller combines high-energy musical performances with supernatural battles.
+            </div>
+            
+            <div class="info-section">
+                <div class="section-title">Genre</div>
+                <div class="genre-tags">
+                    <div class="genre-tag">Musical</div>
+                    <div class="genre-tag">Drama</div>
+                    <div class="genre-tag">Action</div>
+                    <div class="genre-tag">Horror</div>
+                </div>
+            </div>
+            
+            <div class="info-section">
+                <div class="section-title">Casts <span class="see-all">See all ></span></div>
+                <div class="cast-row">
+                    <div class="cast">
+                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" class="cast-image" alt="Arden Cho">
+                        <div class="cast-name">Arden Cho</div>
+                        <div class="cast-character">Rumi</div>
+                    </div>
+                    <div class="cast">
+                        <img src="https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=988&q=80" class="cast-image" alt="May Hong">
+                        <div class="cast-name">May Hong</div>
+                        <div class="cast-character">Mira</div>
+                    </div>
+                    <div class="cast">
+                        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" class="cast-image" alt="Ji-young Yoo">
+                        <div class="cast-name">Ji-young Yoo</div>
+                        <div class="cast-character">Zoey</div>
+                    </div>
+                    <div class="cast">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" class="cast-image" alt="Ahn Hyo-seop">
+                        <div class="cast-name">Ahn Hyo-seop</div>
+                        <div class="cast-character">Jiru</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- OTHER INFORMATION SECTION -->
+        <div id="info" class="section">
+            <div class="info-section">
+                <div class="section-title">Full Cast <span class="see-all">See all ></span></div>
+                <div class="cast-row">
+                    <div class="cast">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" class="cast-image" alt="Arden Cho">
+                        <div class="cast-name">Arden Cho</div>
+                        <div class="cast-character">Rumi</div>
+                    </div>
+                    <div class="cast">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" class="cast-image" alt="May Hong">
+                        <div class="cast-name">May Hong</div>
+                        <div class="cast-character">Mira</div>
+                    </div>
+                    <div class="cast">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" class="cast-image" alt="SungWon Cho">
+                        <div class="cast-name">SungWon Cho</div>
+                        <div class="cast-character">Abby Saja</div>
+                    </div>
+                    <div class="cast">
+                        <img src="https://randomuser.me/api/portraits/men/22.jpg" class="cast-image" alt="Joel Kim Booster">
+                        <div class="cast-name">Joel Kim Booster</div>
+                        <div class="cast-character">Romance Saja</div>
+                    </div>
+                    <div class="cast">
+                        <img src="https://randomuser.me/api/portraits/men/45.jpg" class="cast-image" alt="Alan Lee">
+                        <div class="cast-name">Alan Lee</div>
+                        <div class="cast-character">Mystery Saja</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="info-section">
+                <div class="section-title">Ratings & Reviews <span class="see-all">See all ></span></div>
+                
+                <!-- HORIZONTAL REVIEWS -->
+                <div class="reviews-container">
+                    <div class="review-card">
+                        <div class="review-profile">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" class="profile-img" alt="MovieBuff92">
+                            <div class="profile-info">
+                                <div class="profile-name">MovieBuff92</div>
+                                <div class="prodate">2 days ago</div>
+                            </div>
+                        </div>
+                        <div class="review-rating">★★★★☆</div>
+                        <div class="review-text">"Starts a bit slow but ends with an amazing finale. The blend of K-pop and horror actually works better than expected! The musical sequences are visually stunning."</div>
+                        <div class="review-stats">
+                            <div class="review-likes">
+                                <button class="like-btn"><i class="fas fa-heart"></i></button>
+                                <span>124 likes</span>
+                            </div>
+                            <div class="review-replies">3 replies</div>
+                        </div>
+                    </div>
+                    
+                    <div class="review-card">
+                        <div class="review-profile">
+                            <img src="https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=988&q=80" class="profile-img" alt="CinemaLover">
+                            <div class="profile-info">
+                                <div class="profile-name">CinemaLover</div>
+                                <div class="prodate">1 week ago</div>
+                            </div>
+                        </div>
+                        <div class="review-rating">★★★★★</div>
+                        <div class="review-text">"Stylish, fun, and surprisingly emotional. The musical numbers are incredible and the action sequences are top-notch. Arden Cho's performance is outstanding!"</div>
+                        <div class="review-stats">
+                            <div class="review-likes">
+                                <button class="like-btn liked"><i class="fas fa-heart"></i></button>
+                                <span>89 likes</span>
+                            </div>
+                            <div class="review-replies">1 reply</div>
+                        </div>
+                    </div>
+                    
+                    <div class="review-card">
+                        <div class="review-profile">
+                            <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" class="profile-img" alt="HorrorFanatic">
+                            <div class="profile-info">
+                                <div class="profile-name">HorrorFanatic</div>
+                                <div class="prodate">3 weeks ago</div>
+                            </div>
+                        </div>
+                        <div class="review-rating">★★★☆☆</div>
+                        <div class="review-text">"Good concept but could have been scarier. The demon designs are creative though, and the cast has great chemistry. Worth watching for the visuals alone."</div>
+                        <div class="review-stats">
+                            <div class="review-likes">
+                                <button class="like-btn"><i class="fas fa-heart"></i></button>
+                                <span>56 likes</span>
+                            </div>
+                            <div class="review-replies">7 replies</div>
+                        </div>
+                    </div>
+                    
+                    <div class="review-card">
+                        <div class="review-profile">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" class="profile-img" alt="KPOPStan">
+                            <div class="profile-info">
+                                <div class="profile-name">KPOPStan</div>
+                                <div class="prodate">5 days ago</div>
+                            </div>
+                        </div>
+                        <div class="review-rating">★★★★★</div>
+                        <div class="review-text">"As a K-pop fan, I loved every minute! The music is catchy and the choreography is amazing. The horror elements add an exciting twist to the genre."</div>
+                        <div class="review-stats">
+                            <div class="review-likes">
+                                <button class="like-btn"><i class="fas fa-heart"></i></button>
+                                <span>210 likes</span>
+                            </div>
+                            <div class="review-replies">12 replies</div>
+                        </div>
+                    </div>
+                    
+                    <div class="review-card">
+                        <div class="review-profile">
+                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80" class="profile-img" alt="FilmCritic101">
+                            <div class="profile-info">
+                                <div class="profile-name">FilmCritic101</div>
+                                <div class="prodate">2 weeks ago</div>
+                            </div>
+                        </div>
+                        <div class="review-rating">★★★★☆</div>
+                        <div class="review-text">"A fresh take on both the musical and horror genres. While some plot points are predictable, the execution and visual style make up for it. Solid 4 stars."</div>
+                        <div class="review-stats">
+                            <div class="review-likes">
+                                <button class="like-btn liked"><i class="fas fa-heart"></i></button>
+                                <span>78 likes</span>
+                            </div>
+                            <div class="review-replies">5 replies</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- ADD REVIEW FORM -->
+                <div class="add-review">
+                    <div class="add-review-title">Add Your Review</div>
+                    <div class="review-input-group">
+                        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1480&q=80" class="user-avatar-small" alt="Your Avatar">
+                        <textarea class="review-input" placeholder="Write your review here..."></textarea>
+                    </div>
+                    <div class="rating-selector">
+                        <span>Your Rating:</span>
+                        <div class="star-selector">
+                            <span class="star" data-rating="1">☆</span>
+                            <span class="star" data-rating="2">☆</span>
+                            <span class="star" data-rating="3">☆</span>
+                            <span class="star" data-rating="4">☆</span>
+                            <span class="star" data-rating="5">☆</span>
+                        </div>
+                    </div>
+                    <button class="review-submit-btn">Submit Review</button>
+                    <div style="clear: both;"></div>
+                </div>
+            </div>
+            
+            <div class="info-section">
+                <div class="section-title">Related Movies</div>
+                <div class="related-row">
+                    <div class="related-item">
+                        <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1450&q=80" class="related-image" alt="Inception">
+                        <div class="related-title">Inception</div>
+                    </div>
+                    <div class="related-item">
+                        <img src="https://images.unsplash.com/photo-1594909122845-11baa439b7bf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="related-image" alt="Joker">
+                        <div class="related-title">Joker</div>
+                    </div>
+                    <div class="related-item">
+                        <img src="https://images.unsplash.com/photo-1531259683007-016a7b628fc3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1467&q=80" class="related-image" alt="Aladin">
+                        <div class="related-title">Aladin</div>
+                    </div>
+                    <div class="related-item">
+                        <img src="https://images.unsplash.com/photo-1595769812725-4c6564f7528b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1479&q=80" class="related-image" alt="Interstellar">
+                        <div class="related-title">Interstellar</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <!-- Left Section -->
+                <div class="footer-left">
+                    <div class="footer-logo">
+                        REAL REVIEW
+                    </div>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <!-- Right Section -->
+                <div class="footer-right">
+                    <div class="footer-tmdb">
+                        <span class="tmdb-logo">TMDB</span>
+                    </div>
+                    <p class="footer-description">
+                        All movie data provided by The Movie Database (TMDB). This product uses the TMDB API but is not endorsed or certified by TMDB.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Bottom Section -->
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <span>© 2023 REAL REVIEW</span>
+                    <span>•</span>
+                    <span>All rights reserved</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ===== NAVBAR FUNCTIONALITY =====
+        // Get elements
+        const mobileMenu = document.getElementById('mobile-menu');
+        const burgerMenuContent = document.getElementById('burgerMenuContent');
+        const burgerOverlay = document.getElementById('burgerOverlay');
+        
+        // Toggle burger menu
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            burgerMenuContent.classList.toggle('active');
+            burgerOverlay.classList.toggle('active');
+            
+            // Prevent scrolling when menu is open
+            document.body.style.overflow = burgerMenuContent.classList.contains('active') ? 'hidden' : '';
+        });
+        
+        // Close burger menu when clicking on overlay
+        burgerOverlay.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            burgerMenuContent.classList.remove('active');
+            burgerOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+        
+        // Close burger menu when clicking on a link
+        document.querySelectorAll('.burger-nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                burgerMenuContent.classList.remove('active');
+                burgerOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+        
+        // Profile dropdown functionality
+        const profileSection = document.querySelector('.profile-section');
+        const profileDropdown = document.querySelector('.profile-dropdown');
+        
+        // Show dropdown on hover
+        profileSection.addEventListener('mouseenter', () => {
+            profileDropdown.style.opacity = '1';
+            profileDropdown.style.visibility = 'visible';
+            profileDropdown.style.transform = 'translateY(0)';
+        });
+        
+        // Hide dropdown when mouse leaves
+        profileSection.addEventListener('mouseleave', () => {
+            profileDropdown.style.opacity = '0';
+            profileDropdown.style.visibility = 'hidden';
+            profileDropdown.style.transform = 'translateY(-10px)';
+        });
+        
+        // Close dropdown when clicking on a dropdown item
+        document.querySelectorAll('.dropdown-item').forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                const itemText = item.textContent.trim();
+                alert(`Selected: ${itemText}`);
+                
+                // Close dropdown
+                profileDropdown.style.opacity = '0';
+                profileDropdown.style.visibility = 'hidden';
+                profileDropdown.style.transform = 'translateY(-10px)';
+            });
+        });
+        
+        // Close burger menu with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && burgerMenuContent.classList.contains('active')) {
+                mobileMenu.classList.remove('active');
+                burgerMenuContent.classList.remove('active');
+                burgerOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+        
+        // Logo does nothing - no longer a link, just text
+        document.querySelector('.logo').addEventListener('click', (e) => {
+            e.preventDefault();
+        });
+        
+        // Footer link functionality
+        document.querySelectorAll('.footer-links a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const linkText = link.textContent.trim();
+                alert(`You clicked on: ${linkText}\nThis would navigate to the ${linkText.toLowerCase()} page.`);
+            });
+        });
+        
+        // ===== MOVIE PAGE FUNCTIONALITY =====
+        function switchTab(id) {
+            // Remove active class from all tabs
+            document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+            // Hide all sections
+            document.querySelectorAll(".section").forEach(s => s.classList.remove("active"));
+            
+            // Add active class to clicked tab
+            document.querySelector(`[onclick="switchTab('${id}')"]`).classList.add("active");
+            // Show corresponding section
+            document.getElementById(id).classList.add("active");
+        }
+
+        // Add click functionality to play button
+        document.querySelector('.play-btn').addEventListener('click', function() {
+            alert('Now playing: K-POP DEMON HUNTERS');
+            // In a real app, this would trigger video playback
+        });
+
+        // Add functionality to action buttons
+        document.querySelectorAll('.action').forEach(button => {
+            button.addEventListener('click', function() {
+                const actionText = this.querySelector('.action-text').textContent;
+                alert(`Action: ${actionText}`);
+            });
+        });
+
+        // Add functionality to "See all" links
+        document.querySelectorAll('.see-all').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const sectionTitle = this.closest('.section-title').querySelector(':not(.see-all)').textContent;
+                alert(`Viewing all: ${sectionTitle}`);
+            });
+        });
+
+        // Add functionality to related movie items
+        document.querySelectorAll('.related-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const movieTitle = this.querySelector('.related-title').textContent;
+                alert(`Now viewing: ${movieTitle}`);
+            });
+        });
+
+        // Like button functionality for reviews
+        document.querySelectorAll('.like-btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const isLiked = this.classList.contains('liked');
+                const likesSpan = this.parentElement.querySelector('span');
+                let currentLikes = parseInt(likesSpan.textContent.split(' ')[0]);
+                
+                if (isLiked) {
+                    this.classList.remove('liked');
+                    currentLikes--;
+                } else {
+                    this.classList.add('liked');
+                    currentLikes++;
+                }
+                
+                likesSpan.textContent = `${currentLikes} likes`;
+            });
+        });
+
+        // Star rating selector functionality
+        const stars = document.querySelectorAll('.star-selector .star');
+        let selectedRating = 0;
+
+        stars.forEach(star => {
+            star.addEventListener('click', function() {
+                const rating = parseInt(this.getAttribute('data-rating'));
+                selectedRating = rating;
+                
+                // Update star display
+                stars.forEach((s, index) => {
+                    if (index < rating) {
+                        s.classList.add('selected');
+                        s.textContent = '★';
+                    } else {
+                        s.classList.remove('selected');
+                        s.textContent = '☆';
+                    }
+                });
+            });
+            
+            // Hover effect for stars
+            star.addEventListener('mouseover', function() {
+                const rating = parseInt(this.getAttribute('data-rating'));
+                
+                stars.forEach((s, index) => {
+                    if (index < rating) {
+                        s.textContent = '★';
+                    } else {
+                        s.textContent = '☆';
+                    }
+                });
+            });
+            
+            star.addEventListener('mouseout', function() {
+                stars.forEach((s, index) => {
+                    if (s.classList.contains('selected')) {
+                        s.textContent = '★';
+                    } else {
+                        s.textContent = '☆';
+                    }
+                });
+            });
+        });
+
+        // Submit review functionality
+        document.querySelector('.review-submit-btn').addEventListener('click', function() {
+            const reviewText = document.querySelector('.review-input').value;
+            
+            if (!reviewText.trim()) {
+                alert('Please write a review before submitting.');
+                return;
+            }
+            
+            if (selectedRating === 0) {
+                alert('Please select a star rating before submitting.');
+                return;
+            }
+            
+            alert(`Thank you for your ${selectedRating}-star review!\n\nYour review: "${reviewText.substring(0, 100)}..."\n\nYour review has been submitted.`);
+            
+            // Reset form
+            document.querySelector('.review-input').value = '';
+            stars.forEach(star => {
+                star.classList.remove('selected');
+                star.textContent = '☆';
+            });
+            selectedRating = 0;
+        });
+    </script>
+</body>
+</html>
