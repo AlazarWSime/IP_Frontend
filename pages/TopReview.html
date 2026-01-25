@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ADDED FAVICON -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎬</text></svg>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- ADD SHARED.CSS FIRST -->
+    <link rel="stylesheet" href="../css/shared.css">
+    <!-- THEN TOPREVIEW.CSS FOR PAGE-SPECIFIC STYLES -->
+    <link rel="stylesheet" href="../css/topreview.css">
+    <!-- FIXED TYPO IN TITLE -->
+    <title>REAL REVIEW - Top Reviewers</title>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navdiv">
+            <!-- Logo - Now clickable link -->
+            <a href="home.html" class="logo">
+                REAL REVIEW
+            </a>
+            
+            <!-- Regular Navigation Links (Visible on desktop) -->
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="Gener.html">Genre</a></li>
+                <!-- FIXED TYPO: "Top Revivers" to "Top Reviewers" -->
+                <li><a href="TopReview.html" class="active-link">Top Reviewers</a></li>
+            </ul>
+            
+            <!-- Burger Menu Button -->
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <!-- Right section with search and profile icons -->
+            <div class="nav-right">
+                <!-- Search Icon Only (No search bar) -->
+                <a href="search.html" class="search-icon-link">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+                <!-- Profile Section -->
+                <div class="profile-section">
+                    <div class="profile-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="profile-dropdown">
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-user-circle"></i> My Profile
+                        </a>
+                        <a href="myreviews.html" class="dropdown-item">
+                            <i class="fas fa-film"></i> My Reviews
+                        </a>
+                        <a href="watchlist.html" class="dropdown-item">
+                            <i class="fas fa-heart"></i> Watchlist
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-cog"></i> Settings
+                        </a>
+                        <a href="login2.html" class="dropdown-item">
+                            <i class="fas fa-sign-out-alt"></i> login
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Burger Menu Content (Hidden by default, shown on mobile) -->
+    <div class="burger-menu-content" id="burgerMenuContent">
+        <h2 class="burger-menu-header">Menu</h2>
+        
+        <!-- Navigation links in burger menu -->
+        <ul class="burger-nav-links">
+            <li><a href="home.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="Gener.html"><i class="fas fa-film"></i> Genre</a></li>
+            <!-- FIXED TYPO: "Top Revivers" to "Top Reviewers" -->
+            <li><a href="TopReview.html" class="active-link"><i class="fas fa-trophy"></i> Top Reviewers</a></li>
+        </ul>
+        
+        <div class="burger-menu-footer">
+            <p>© 2023 REAL REVIEW</p>
+            <p>All movie data provided by REAL REVIEW</p>
+        </div>
+    </div>
+    
+    <!-- Overlay when burger menu is open -->
+    <div class="burger-overlay" id="burgerOverlay"></div>
+    
+    <!-- Main Content -->
+    <main class="main-container">
+        <!-- Leaderboard Section -->
+        <section class="section">
+            <!-- FIXED TYPO: "Top Revivers" to "Top Reviewers" -->
+            <div class="section-header">
+                <h1 class="section-title">Top Reviewers</h1>
+                <p class="section-subtitle">Our most active movie reviewers based on XP earned</p>
+            </div>
+            
+            <!-- Stats Cards -->
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-value">7,850</div>
+                    <div class="stat-label">Total Reviews</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">1,243</div>
+                    <div class="stat-label">Active Reviewers</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">58,920</div>
+                    <div class="stat-label">Total XP Points</div>
+                </div>
+            </div>
+            
+            <div class="separator"></div>
+            
+            <!-- Leaderboard -->
+            <div class="leaderboard-container">
+                <!-- Leaderboard Header -->
+                <div class="leaderboard-header">
+                    <div class="rank-header">Rank</div>
+                    <div class="name-header">Name</div>
+                    <div class="xp-header">XP Points</div>
+                </div>
+                
+                <!-- Leaderboard Items -->
+                <div class="leaderboard-item current-user">
+                    <div class="rank">
+                        <div class="rank-medal gold">
+                            <span class="medal-number">1</span>
+                        </div>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="James Wilson">
+                        </div>
+                        <div class="user-name">MovieMaster
+                            <span class="user-real-name">James Wilson</span>
+                            <span class="user-badge">Top Reviewer</span>
+                        </div>
+                    </div>
+                    <div class="xp-points">2,850
+                        <span class="xp-label">XP</span>
+                    </div>
+                </div>
+                
+                <div class="leaderboard-item">
+                    <div class="rank">
+                        <div class="rank-medal silver">
+                            <span class="medal-number">2</span>
+                        </div>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Chen">
+                        </div>
+                        <div class="user-name">CinemaCritic
+                            <span class="user-real-name">Sarah Chen</span>
+                            <span class="user-badge">Pro</span>
+                        </div>
+                    </div>
+                    <div class="xp-points">2,420
+                        <span class="xp-label">XP</span>
+                    </div>
+                </div>
+                
+                <div class="leaderboard-item">
+                    <div class="rank">
+                        <div class="rank-medal bronze">
+                            <span class="medal-number">3</span>
+                        </div>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Marcus Rodriguez">
+                        </div>
+                        <div class="user-name">ScreenSage
+                            <span class="user-real-name">Marcus Rodriguez</span>
+                        </div>
+                    </div>
+                    <div class="xp-points">2,150
+                        <span class="xp-label">XP</span>
+                    </div>
+                </div>
+                
+                <div class="leaderboard-item">
+                    <div class="rank">
+                        <span class="rank-number">4</span>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Amelia Taylor">
+                        </div>
+                        <div class="user-name">ReelReviewer
+                            <span class="user-real-name">Amelia Taylor</span>
+                        </div>
+                    </div>
+                    <div class="xp-points">1,980
+                        <span class="xp-label">XP</span>
+                    </div>
+                </div>
+                
+                <div class="leaderboard-item">
+                    <div class="rank">
+                        <span class="rank-number">5</span>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="David Kim">
+                        </div>
+                        <div class="user-name">FilmFanatic
+                            <span class="user-real-name">David Kim</span>
+                            <span class="user-badge">Elite</span>
+                        </div>
+                    </div>
+                    <div class="xp-points">1,850
+                        <span class="xp-label">XP</span>
+                    </div>
+                </div>
+                
+                <div class="leaderboard-item">
+                    <div class="rank">
+                        <span class="rank-number">6</span>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/26.jpg" alt="Olivia Martinez">
+                        </div>
+                        <div class="user-name">DramaDecoder
+                            <span class="user-real-name">Olivia Martinez</span>
+                        </div>
+                    </div>
+                    <div class="xp-points">1,720
+                        <span class="xp-label">XP</span>
+                    </div>
+                </div>
+                
+                <div class="leaderboard-item">
+                    <div class="rank">
+                        <span class="rank-number">7</span>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/81.jpg" alt="Robert Hayes">
+                        </div>
+                        <div class="user-name">HorrorHunter
+                            <span class="user-real-name">Robert Hayes</span>
+                        </div>
+                    </div>
+                    <div class="xp-points">1,640
+                        <span class="xp-label">XP</span>
+                    </div>
+                </div>
+                
+                <div class="leaderboard-item">
+                    <div class="rank">
+                        <span class="rank-number">8</span>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Sophia Patel">
+                        </div>
+                        <div class="user-name">SciFiSavant
+                            <span class="user-real-name">Sophia Patel</span>
+                            <span class="user-badge">Pro</span>
+                        </div>
+                    </div>
+                    <div class="xp-points">1,580
+                        <span class="xp-label">XP</span>
+                    </div>
+                </div>
+                
+                <div class="leaderboard-item">
+                    <div class="rank">
+                        <span class="rank-number">9</span>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Thomas Carter">
+                        </div>
+                        <div class="user-name">ComedyKing
+                            <span class="user-real-name">Thomas Carter</span>
+                        </div>
+                    </div>
+                    <div class="xp-points">1,520
+                        <span class="xp-label">XP</span>
+                    </div>
+                </div>
+                
+                <div class="leaderboard-item">
+                    <div class="rank">
+                        <span class="rank-number">10</span>
+                    </div>
+                    <div class="user-info">
+                        <div class="user-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/56.jpg" alt="Emma Johnson">
+                        </div>
+                        <div class="user-name">RomanceRater
+                            <span class="user-real-name">Emma Johnson</span>
+                        </div>
+                    </div>
+                    <div class="xp-points">1,450
+                        <span class="xp-label">XP</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- XP Explanation -->
+            <div class="section-subtitle" style="text-align: center; margin-top: 30px;">
+                <p>XP points are earned by writing reviews, rating movies, and getting helpful votes from other users.</p>
+                <p>Top 3 reviewers each month receive special badges and rewards.</p>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <!-- Left Section -->
+                <div class="footer-left">
+                    <div class="footer-logo">
+                        REAL REVIEW
+                    </div>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="privacy.html">Privacy</a></li>
+                    </ul>
+                </div>
+
+                <!-- Right Section -->
+                <div class="footer-right">
+                    <div class="footer-tmdb">
+                        <span class="tmdb-logo">TMDB</span>
+                    </div>
+                    <p class="footer-description">
+                        All movie data provided by The Movie Database (REAL REVIEW). This product uses the REAL REVIEW API but the API is being build currently.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Bottom Section -->
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <span>© 2023 REAL REVIEW</span>
+                    <span>•</span>
+                    <span>All rights reserved</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/topreview.js"></script>
+</body>
+</html>

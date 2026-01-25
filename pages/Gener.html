@@ -1,0 +1,1546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REAL REVIEW | Genre</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎬</text></svg>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/Gener.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navdiv">
+            <a href="home.html" class="logo">
+                REAL REVIEW
+            </a>
+            
+            <!-- Regular Navigation Links -->
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="Gener.html" class="active-link">Genre</a></li>
+                <li><a href="TopReview.html">Top Reviewers</a></li>
+            </ul>
+            
+            <!-- Burger Menu Button -->
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <!-- Right section with search and profile icons -->
+            <div class="nav-right">
+                <a href="search.html" class="search-icon-link">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+                <!-- Profile Section -->
+                <div class="profile-section">
+                    <div class="profile-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="profile-dropdown">
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-user-circle"></i> My Profile
+                        </a>
+                        <a href="myreviews.html" class="dropdown-item">
+                            <i class="fas fa-film"></i> My Reviews
+                        </a>
+                        <a href="watchlist.html" class="dropdown-item">
+                            <i class="fas fa-heart"></i> Watchlist
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-cog"></i> Settings
+                        </a>
+                        <a href="login2.html" class="dropdown-item" id="login-button">
+                            <i class="fas fa-sign-out-alt"></i> login
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Burger Menu Content -->
+    <div class="burger-menu-content" id="burgerMenuContent">
+        <h2 class="burger-menu-header">Menu</h2>
+        
+        <ul class="burger-nav-links">
+            <li><a href="home.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#" class="active-link"><i class="fas fa-film"></i> Genre</a></li>
+            <li><a href="login2.html"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+        </ul>
+        
+        <div class="burger-menu-footer">
+            <p>© 2023 REAL REVIEW</p>
+            <p>All movie data provided by REAL REVIEW</p>
+        </div>
+    </div>
+    
+    <!-- Overlay when burger menu is open -->
+    <div class="burger-overlay" id="burgerOverlay"></div>
+    
+    <!-- Main Content -->
+    <main class="main-container">
+        <!-- Genres Section -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">Genres</h2>
+                <p class="section-subtitle">Browse movies by genre</p>
+            </div>
+            
+            <div class="genre-grid" id="genre-grid">
+                <div class="genre-item active" data-genre="action">🎭 Action</div>
+                <div class="genre-item" data-genre="adventure">🌍 Adventure</div>
+                <div class="genre-item" data-genre="animation">🎨 Animation</div>
+                <div class="genre-item" data-genre="comedy">😂 Comedy</div>
+                <div class="genre-item" data-genre="crime">🕵️ Crime</div>
+                <div class="genre-item" data-genre="drama">🎭 Drama</div>
+                <div class="genre-item" data-genre="fantasy">🧙 Fantasy</div>
+                <div class="genre-item" data-genre="horror">👻 Horror</div>
+                <div class="genre-item" data-genre="music">🎵 Music</div>
+                <div class="genre-item" data-genre="mystery">🧠 Mystery</div>
+                <div class="genre-item" data-genre="romance">💖 Romance</div>
+                <div class="genre-item" data-genre="scifi">🚀 Sci-Fi</div>
+                <div class="genre-item" data-genre="thriller">😱 Thriller</div>
+            </div>
+        </section>
+        
+        <!-- Separator -->
+        <div class="separator"></div>
+        
+        <!-- Movies Section - All movies hardcoded here with proper classification -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">Selected Genre: <span class="selected-genre-title" id="selected-genre">🎭 Action</span></h2>
+                <p class="section-subtitle">Top movies in this genre</p>
+            </div>
+            
+            <div class="movies-container" id="movies-container">
+                <!-- ========== ACTION MOVIES ========== -->
+                <a href="overview.html?movie=KPDHposter" class="movie-item" data-genre="action">
+                    <div class="movie-poster">
+                        <img src="../resource/KPDHposter.jpeg" alt="KPDHposter" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">K-Pop Demon Hunter</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(650k view)</span>
+                            <span class="movie-rating">★★★★☆</span>
+                        </div>
+                        <div class="movie-year">(2025)</div>
+                    </div>
+                </a> 
+                  
+                <div class="movie-item" data-genre="action">
+                    <div class="movie-poster">
+                        <img src="../resource/Ant-Man.jpg" alt="Ant-Man poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Ant-Man</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(1.5M view)</span>
+                            <span class="movie-rating">★★★★☆</span>
+                        </div>
+                        <div class="movie-year">(2015)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="action">
+                    <div class="movie-poster">
+                        <img src="../resource/Black_Panther.jpg" alt="Black Panther poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Black Panther</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(2.2M view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(2018)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="action">
+                    <div class="movie-poster">
+                        <img src="../resource/Gladiator.jpg" alt="Gladiator poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Gladiator</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(1.6M view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(2000)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="action">
+                    <div class="movie-poster">
+                        <img src="../resource/Inception.jpg" alt="Inception poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Inception</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(2.9M view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(2010)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="action">
+                    <div class="movie-poster">
+                        <img src="../resource/Kill_Bill.jpg" alt="Kill Bill poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Kill Bill: Vol. 1</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(1.2M view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(2003)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="action">
+                    <div class="movie-poster">
+                        <img src="../resource/Lord-of-the-rings.jpg" alt="Lord of the Rings poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Lord of the Rings: The Fellowship of the Ring</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(1.9M view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(2001)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="action">
+                    <div class="movie-poster">
+                        <img src="../resource/Mad_Max_Fury_Road.jpg" alt="Mad Max: Fury Road poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Mad Max: Fury Road</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(1.1M view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(2015)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="action">
+                    <div class="movie-poster">
+                        <img src="../resource/The_dark_night.jpg" alt="The Dark Knight poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">The Dark Knight</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(3.0M view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(2008)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="action">
+                    <div class="movie-poster">
+                        <img src="../resource/Matrix.jpg" alt="The Matrix poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">The Matrix</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(2.1M view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(1999)</div>
+                    </div>
+                </div>
+                
+                <!-- ========== ADVENTURE MOVIES ========== -->
+                <div class="movie-item" data-genre="adventure">
+                    <div class="movie-poster">
+                        <img src="../resource/barbie.jpg" alt="Barbie poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Barbie</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(600k view)</span>
+                            <span class="movie-rating">★★★★☆</span>
+                        </div>
+                        <div class="movie-year">(2023)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="adventure">
+                    <div class="movie-poster">
+                        <img src="../resource/Black_Panther.jpg" alt="Black Panther poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Black Panther</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(2.2M view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(2018)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="adventure">
+                    <div class="movie-poster">
+                        <img src="../resource/Dune.jpg" alt="Dune poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Dune</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(850k view)</span>
+                            <span class="mouse-rating">★★★★☆</span>
+                        </div>
+                        <div class="movie-year">(2021)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="adventure">
+                    <div class="movie-poster">
+                        <img src="../resource/Gladiator.jpg" alt="Gladiator poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Gladiator</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(1.6M view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(2000)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="adventure">
+                    <div class="movie-poster">
+                        <img src="../resource/Interstellar.jpg" alt="Interstellar poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Interstellar</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(2.6M view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(2014)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="adventure">
+                    <div class="movie-poster">
+                        <img src="../resource/Jurassic-park.jpg" alt="Jurassic Park poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Jurassic Park</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(1.1M view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(1993)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="adventure">
+                    <div class="movie-poster">
+                        <img src="../resource/Lord-of-the-rings.jpg" alt="Lord of the Rings poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Lord of the Rings: The Fellowship of the Ring</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(1.9M view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(2001)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="adventure">
+                    <div class="movie-poster">
+                        <img src="../resource/Mad_Max_Fury_Road.jpg" alt="Mad Max: Fury Road poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Mad Max: Fury Road</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(1.1M view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(2015)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="adventure">
+                    <div class="movie-poster">
+                        <img src="../resource/Spirited-Away.jpg" alt="Spirited Away poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Spirited Away</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(800k view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(2001)</div>
+                    </div>
+                </div>
+                
+                <!-- ========== ANIMATION MOVIES ========== -->
+                 <a href="overview.html?movie=KPDHposter" class="movie-item" data-genre="animation">
+                    <div class="movie-poster">
+                        <img src="../resource/KPDHposter.jpeg" alt="KPDHposter" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">K-Pop Demon Hunter</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(650k view)</span>
+                            <span class="movie-rating">★★★★☆</span>
+                        </div>
+                        <div class="movie-year">(2025)</div>
+                    </div>
+                </a>
+
+                <div class="movie-item" data-genre="animation">
+                    <div class="movie-poster">
+                        <img src="../resource/coco.jpg" alt="Coco poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Coco</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(600k view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(2017)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="animation">
+                    <div class="movie-poster">
+                        <img src="../resource/Finding_Nemo.jpg" alt="Finding Nemo poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Finding Nemo</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(1.1M view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(2003)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="animation">
+                    <div class="movie-poster">
+                        <img src="../resource/Frozen.webp" alt="Frozen poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Frozen</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(1.2M view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(2013)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="animation">
+                    <div class="movie-poster">
+                        <img src="../resource/How_To_Train_Your_Dragon.webp" alt="How to Train Your Dragon poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">How to Train Your Dragon</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(800k view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(2010)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="animation">
+                    <div class="movie-poster">
+                        <img src="../resource/Shrek.jpg" alt="Shrek poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Shrek</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(700k view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(2001)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="animation">
+                    <div class="movie-poster">
+                        <img src="../resource/Spirited-Away.jpg" alt="Spirited Away poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Spirited Away</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(800k view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(2001)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="animation">
+                    <div class="movie-poster">
+                        <img src="../resource/ToyStory.webp" alt="Toy Story poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Toy Story</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(1.0M view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(1995)</div>
+                    </div>
+                </div>
+                
+                <!-- ========== COMEDY MOVIES ========== -->
+                <div class="movie-item" data-genre="comedy">
+                    <div class="movie-poster">
+                        <img src="../resource/barbie.jpg" alt="Barbie poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Barbie</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(600k view)</span>
+                            <span class="movie-rating">★★★★☆</span>
+                        </div>
+                        <div class="movie-year">(2023)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="comedy">
+                    <div class="movie-poster">
+                        <img src="../resource/Bridesmaids.jpg" alt="Bridesmaids poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Bridesmaids</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(300k view)</span>
+                            <span class="movie-rating">★★★★☆</span>
+                        </div>
+                        <div class="movie-year">(2011)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="comedy">
+                    <div class="movie-poster">
+                        <img src="../resource/Forrest_Gump.jpg" alt="Forrest Gump poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Forrest Gump</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(2.2M view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(1994)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="comedy">
+                    <div class="movie-poster">
+                        <img src="../resource/Knives_Out.jpg" alt="Knives Out poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Knives Out</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(750k view)</span>
+                            <span class="movie-rating">★★★★☆</span>
+                        </div>
+                        <div class="movie-year">(2019)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="comedy">
+                    <div class="movie-poster">
+                        <img src="../resource/LA_La_land.jpg" alt="La La Land poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">La La Land</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(650k view)</span>
+                            <span class="movie-rating">★★★★☆</span>
+                        </div>
+                        <div class="movie-year">(2016)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="comedy">
+                    <div class="movie-poster">
+                        <img src="../resource/Parasite.jpg" alt="Parasite poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Parasite</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(900k view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(2019)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="comedy">
+                    <div class="movie-poster">
+                        <img src="../resource/pulp-fiction.jpg" alt="Pulp Fiction poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Pulp Fiction</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(2.3M view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(1994)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="comedy">
+                    <div class="movie-poster">
+                        <img src="../resource/Step-Brothers.jpg" alt="Step Brothers poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Step Brothers</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(600k view)</span>
+                            <span class="movie-rating">★★★★☆</span>
+                        </div>
+                        <div class="movie-year">(2008)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="comedy">
+                    <div class="movie-poster">
+                        <img src="../resource/Superbad.jpg" alt="Superbad poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Superbad</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(600k view)</span>
+                            <span class="movie-rating">★★★★☆</span>
+                        </div>
+                        <div class="movie-year">(2007)</div>
+                    </div>
+                </div>
+                
+                <!-- ========== CRIME MOVIES ========== -->
+                <div class="movie-item" data-genre="crime">
+                    <div class="movie-poster">
+                        <img src="../resource/American-psycho.jpg" alt="American Psycho poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">American Psycho</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(950k view)</span>
+                            <span class="movie-rating">★★★★☆</span>
+                        </div>
+                        <div class="movie-year">(2000)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="crime">
+                    <div class="movie-poster">
+                        <img src="../resource/fightclub.jpg" alt="Fight Club poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Fight Club</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(2.8M view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(1999)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="crime">
+                    <div class="movie-poster">
+                        <img src="../resource/Goodfellas.jpg" alt="Goodfellas poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Goodfellas</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(1.3M view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(1990)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="crime">
+                    <div class="movie-poster">
+                        <img src="../resource/Joker.jpg" alt="Joker poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Joker</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(2.1M view)</span>
+                            <span class="movie-rating">★★★★☆</span>
+                        </div>
+                        <div class="movie-year">(2019)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="crime">
+                    <div class="movie-poster">
+                        <img src="../resource/Kill_Bill.jpg" alt="Kill Bill poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Kill Bill: Vol. 1</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(1.2M view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(2003)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="crime">
+                    <div class="movie-poster">
+                        <img src="../resource/Knives_Out.jpg" alt="Knives Out poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Knives Out</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(750k view)</span>
+                            <span class="movie-rating">★★★★☆</span>
+                        </div>
+                        <div class="movie-year">(2019)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="crime">
+                    <div class="movie-poster">
+                        <img src="../resource/No_Country_for_old_men.jpg" alt="No Country for Old Men poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">No Country for Old Men</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(1.0M view)</span>
+                            <span class="movie-rating">★★★★☆</span>
+                        </div>
+                        <div class="movie-year">(2007)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="crime">
+                    <div class="movie-poster">
+                        <img src="../resource/pulp-fiction.jpg" alt="Pulp Fiction poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Pulp Fiction</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(2.3M view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(1994)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="crime">
+                    <div class="movie-poster">
+                        <img src="../resource/Se7en.jpg" alt="Se7en poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Se7en</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(1.8M view)</span>
+                            <span class="movie-rating">★★★★☆</span>
+                        </div>
+                        <div class="movie-year">(1995)</div>
+                    </div>
+                </div>
+                
+                <!-- ========== DRAMA MOVIES ========== -->
+                <div class="movie-item" data-genre="drama">
+                    <div class="movie-poster">
+                        <img src="../resource/A_Quiet_Place.jpg" alt="A Quiet Place poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">A Quiet Place</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(550k view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(2018)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="drama">
+                    <div class="movie-poster">
+                        <img src="../resource/American-psycho.jpg" alt="American Psycho poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">American Psycho</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(950k view)</span>
+                            <span class="movie-rating">★★★★☆</span>
+                        </div>
+                        <div class="movie-year">(2000)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="drama">
+                    <div class="movie-poster">
+                        <img src="../resource/braveheart.jpg" alt="Braveheart poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Braveheart</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(1.1M view)</span>
+                            <span class="movie-rating">★★★★☆</span>
+                        </div>
+                        <div class="movie-year">(1995)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="drama">
+                    <div class="movie-poster">
+                        <img src="../resource/Casablanca.jpg" alt="Casablanca poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Casablanca</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(600k view)</span>
+                            <span class="movie-rating">★★★★☆</span>
+                        </div>
+                        <div class="movie-year">(1942)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="drama">
+                    <div class="movie-poster">
+                        <img src="../resource/citizen_kane.jpg" alt="Citizen Kane poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Citizen Kane</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(450k view)</span>
+                            <span class="movie-rating">★★★★☆</span>
+                        </div>
+                        <div class="movie-year">(1941)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="drama">
+                    <div class="movie-poster">
+                        <img src="../resource/Dune.jpg" alt="Dune poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Dune</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(850k view)</span>
+                            <span class="movie-rating">★★★★☆</span>
+                        </div>
+                        <div class="movie-year">(2021)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="drama">
+                    <div class="movie-poster">
+                        <img src="../resource/Everything_everywhere_all_at_once.jpg" alt="Everything Everywhere All at Once poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Everything Everywhere All at Once</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(850k view)</span>
+                            <span class="movie-rating">★★★★☆</span>
+                        </div>
+                        <div class="movie-year">(2022)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="drama">
+                    <div class="movie-poster">
+                        <img src="../resource/fightclub.jpg" alt="Fight Club poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Fight Club</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(2.8M view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(1999)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="drama">
+                    <div class="movie-poster">
+                        <img src="../resource/Forrest_Gump.jpg" alt="Forrest Gump poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Forrest Gump</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(2.2M view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(1994)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="drama">
+                    <div class="movie-poster">
+                        <img src="../resource/Her.jpg" alt="Her poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Her</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(650k view)</span>
+                            <span class="movie-rating">★★★★☆</span>
+                        </div>
+                        <div class="movie-year">(2013)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="drama">
+                    <div class="movie-poster">
+                        <img src="../resource/Interstellar.jpg" alt="Interstellar poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Interstellar</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(2.6M view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(2014)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="drama">
+                    <div class="movie-poster">
+                        <img src="../resource/Joker.jpg" alt="Joker poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Joker</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(2.1M view)</span>
+                            <span class="movie-rating">★★★★☆</span>
+                        </div>
+                        <div class="movie-year">(2019)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="drama">
+                    <div class="movie-poster">
+                        <img src="../resource/No_Country_for_old_men.jpg" alt="No Country for Old Men poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">No Country for Old Men</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(1.0M view)</span>
+                            <span class="movie-rating">★★★★☆</span>
+                        </div>
+                        <div class="movie-year">(2007)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="drama">
+                    <div class="movie-poster">
+                        <img src="../resource/Parasite.jpg" alt="Parasite poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Parasite</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(900k view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(2019)</div>
+                    </div>
+                </div>
+                
+                <!-- ========== FANTASY MOVIES ========== -->
+                <div class="movie-item" data-genre="fantasy">
+                    <div class="movie-poster">
+                        <img src="../resource/Aladdin-poster.jpg" alt="Aladdin poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Aladdin</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(300k view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(2019)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="fantasy">
+                    <div class="movie-poster">
+                        <img src="../resource/barbie.jpg" alt="Barbie poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Barbie</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(600k view)</span>
+                            <span class="movie-rating">★★★★☆</span>
+                        </div>
+                        <div class="movie-year">(2023)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="fantasy">
+                    <div class="movie-poster">
+                        <img src="../resource/coco.jpg" alt="Coco poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Coco</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(600k view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(2017)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="fantasy">
+                    <div class="movie-poster">
+                        <img src="../resource/Harry_Poter.jpg" alt="Harry Potter poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Harry Potter and the Sorcerer's Stone</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(900k view)</span>
+                            <span class="movie-rating">★★★★☆</span>
+                        </div>
+                        <div class="movie-year">(2001)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="fantasy">
+                    <div class="movie-poster">
+                        <img src="../resource/Lord-of-the-rings.jpg" alt="Lord of the Rings poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Lord of the Rings: The Fellowship of the Ring</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(1.9M view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(2001)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="fantasy">
+                    <div class="movie-poster">
+                        <img src="../resource/Spirited-Away.jpg" alt="Spirited Away poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Spirited Away</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(800k view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(2001)</div>
+                    </div>
+                </div>
+                
+                <!-- ========== HORROR MOVIES ========== -->
+                <div class="movie-item" data-genre="horror">
+                    <div class="movie-poster">
+                        <img src="../resource/Alien.jpg" alt="Alien poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Alien</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(950k view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(1979)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="horror">
+                    <div class="movie-poster">
+                        <img src="../resource/A_Quiet_Place.jpg" alt="A Quiet Place poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">A Quiet Place</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(550k view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(2018)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="horror">
+                    <div class="movie-poster">
+                        <img src="../resource/get_out.jpg" alt="Get Out poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Get Out</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(650k view)</span>
+                            <span class="movie-rating">★★★★☆</span>
+                        </div>
+                        <div class="movie-year">(2017)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="horror">
+                    <div class="movie-poster">
+                        <img src="../resource/Shutter-Island.jpg" alt="Shutter Island poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Shutter Island</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(1.4M view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(2010)</div>
+                    </div>
+                </div>
+                
+                <!-- ========== MUSIC MOVIES ========== -->
+                <div class="movie-item" data-genre="music">
+                    <div class="movie-poster">
+                        <img src="../resource/LA_La_land.jpg" alt="La La Land poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">La La Land</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(650k view)</span>
+                            <span class="movie-rating">★★★★☆</span>
+                        </div>
+                        <div class="movie-year">(2016)</div>
+                    </div>
+                </div>
+                
+                <a href="overview.html?movie=KPDHposter" class="movie-item" data-genre="music">
+                    <div class="movie-poster">
+                        <img src="../resource/KPDHposter.jpeg" alt="KPDHposter" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">K-Pop Demon Hunter</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(650k view)</span>
+                            <span class="movie-rating">★★★★☆</span>
+                        </div>
+                        <div class="movie-year">(2025)</div>
+                    </div>
+                </a>
+                
+                
+                <!-- ========== MYSTERY MOVIES ========== -->
+                <div class="movie-item" data-genre="mystery">
+                    <div class="movie-poster">
+                        <img src="../resource/Alien.jpg" alt="Alien poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Alien</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(950k view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(1979)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="mystery">
+                    <div class="movie-poster">
+                        <img src="../resource/get_out.jpg" alt="Get Out poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Get Out</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(650k view)</span>
+                            <span class="movie-rating">★★★★☆</span>
+                        </div>
+                        <div class="movie-year">(2017)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="mystery">
+                    <div class="movie-poster">
+                        <img src="../resource/Knives_Out.jpg" alt="Knives Out poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Knives Out</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(750k view)</span>
+                            <span class="movie-rating">★★★★☆</span>
+                        </div>
+                        <div class="movie-year">(2019)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="mystery">
+                    <div class="movie-poster">
+                        <img src="../resource/Se7en.jpg" alt="Se7en poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Se7en</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(1.8M view)</span>
+                            <span class="movie-rating">★★★★☆</span>
+                        </div>
+                        <div class="movie-year">(1995)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="mystery">
+                    <div class="movie-poster">
+                        <img src="../resource/Shutter-Island.jpg" alt="Shutter Island poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Shutter Island</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(1.4M view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(2010)</div>
+                    </div>
+                </div>
+                
+                <!-- ========== ROMANCE MOVIES ========== -->
+                <div class="movie-item" data-genre="romance">
+                    <div class="movie-poster">
+                        <img src="../resource/Casablanca.jpg" alt="Casablanca poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Casablanca</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(600k view)</span>
+                            <span class="movie-rating">★★★★☆</span>
+                        </div>
+                        <div class="movie-year">(1942)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="romance">
+                    <div class="movie-poster">
+                        <img src="../resource/Forrest_Gump.jpg" alt="Forrest Gump poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Forrest Gump</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(2.2M view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(1994)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="romance">
+                    <div class="movie-poster">
+                        <img src="../resource/Her.jpg" alt="Her poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Her</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(650k view)</span>
+                            <span class="movie-rating">★★★★☆</span>
+                        </div>
+                        <div class="movie-year">(2013)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="romance">
+                    <div class="movie-poster">
+                        <img src="../resource/LA_La_land.jpg" alt="La La Land poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">La La Land</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(650k view)</span>
+                            <span class="movie-rating">★★★★☆</span>
+                        </div>
+                        <div class="movie-year">(2016)</div>
+                    </div>
+                </div>
+                
+                <!-- ========== SCI-FI MOVIES ========== -->
+                <div class="movie-item" data-genre="scifi">
+                    <div class="movie-poster">
+                        <img src="../resource/Alien.jpg" alt="Alien poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Alien</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(950k view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(1979)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="scifi">
+                    <div class="movie-poster">
+                        <img src="../resource/Ant-Man.jpg" alt="Ant-Man poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Ant-Man</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(1.5M view)</span>
+                            <span class="movie-rating">★★★★☆</span>
+                        </div>
+                        <div class="movie-year">(2015)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="scifi">
+                    <div class="movie-poster">
+                        <img src="../resource/Dune.jpg" alt="Dune poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Dune</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(850k view)</span>
+                            <span class="movie-rating">★★★★☆</span>
+                        </div>
+                        <div class="movie-year">(2021)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="scifi">
+                    <div class="movie-poster">
+                        <img src="../resource/E.T..jpg" alt="E.T. the Extra-Terrestrial poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">E.T. the Extra-Terrestrial</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(450k view)</span>
+                            <span class="movie-rating">★★★★☆</span>
+                        </div>
+                        <div class="movie-year">(1982)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="scifi">
+                    <div class="movie-poster">
+                        <img src="../resource/Everything_everywhere_all_at_once.jpg" alt="Everything Everywhere All at Once poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Everything Everywhere All at Once</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(850k view)</span>
+                            <span class="movie-rating">★★★★☆</span>
+                        </div>
+                        <div class="movie-year">(2022)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="scifi">
+                    <div class="movie-poster">
+                        <img src="../resource/Inception.jpg" alt="Inception poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Inception</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(2.9M view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(2010)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="scifi">
+                    <div class="movie-poster">
+                        <img src="../resource/Interstellar.jpg" alt="Interstellar poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Interstellar</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(2.6M view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(2014)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="scifi">
+                    <div class="movie-poster">
+                        <img src="../resource/Jurassic-park.jpg" alt="Jurassic Park poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Jurassic Park</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(1.1M view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(1993)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="scifi">
+                    <div class="movie-poster">
+                        <img src="../resource/Mad_Max_Fury_Road.jpg" alt="Mad Max: Fury Road poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Mad Max: Fury Road</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(1.1M view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(2015)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="scifi">
+                    <div class="movie-poster">
+                        <img src="../resource/Matrix.jpg" alt="The Matrix poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">The Matrix</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(2.1M view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(1999)</div>
+                    </div>
+                </div>
+                
+                <!-- ========== THRILLER MOVIES ========== -->
+                <div class="movie-item" data-genre="thriller">
+                    <div class="movie-poster">
+                        <img src="../resource/American-psycho.jpg" alt="American Psycho poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">American Psycho</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(950k view)</span>
+                            <span class="movie-rating">★★★★☆</span>
+                        </div>
+                        <div class="movie-year">(2000)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="thriller">
+                    <div class="movie-poster">
+                        <img src="../resource/fightclub.jpg" alt="Fight Club poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Fight Club</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(2.8M view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(1999)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="thriller">
+                    <div class="movie-poster">
+                        <img src="../resource/get_out.jpg" alt="Get Out poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Get Out</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(650k view)</span>
+                            <span class="movie-rating">★★★★☆</span>
+                        </div>
+                        <div class="movie-year">(2017)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="thriller">
+                    <div class="movie-poster">
+                        <img src="../resource/Joker.jpg" alt="Joker poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Joker</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(2.1M view)</span>
+                            <span class="movie-rating">★★★★☆</span>
+                        </div>
+                        <div class="movie-year">(2019)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="thriller">
+                    <div class="movie-poster">
+                        <img src="../resource/Jurassic-park.jpg" alt="Jurassic Park poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Jurassic Park</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(1.1M view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(1993)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="thriller">
+                    <div class="movie-poster">
+                        <img src="../resource/No_Country_for_old_men.jpg" alt="No Country for Old Men poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">No Country for Old Men</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(1.0M view)</span>
+                            <span class="movie-rating">★★★★☆</span>
+                        </div>
+                        <div class="movie-year">(2007)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="thriller">
+                    <div class="movie-poster">
+                        <img src="../resource/Se7en.jpg" alt="Se7en poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Se7en</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(1.8M view)</span>
+                            <span class="movie-rating">★★★★☆</span>
+                        </div>
+                        <div class="movie-year">(1995)</div>
+                    </div>
+                </div>
+                
+                <div class="movie-item" data-genre="thriller">
+                    <div class="movie-poster">
+                        <img src="../resource/Shutter-Island.jpg" alt="Shutter Island poster" loading="lazy">
+                    </div>
+                    <div class="movie-info">
+                        <div class="movie-title">Shutter Island</div>
+                        <div class="movie-details">
+                            <span class="movie-views">(1.4M view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-year">(2010)</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <div class="footer-logo">
+                        REAL REVIEW
+                    </div>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="privacy.html">Privacy</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-right">
+                    <p class="footer-description">
+                       All movie data provided by The Movie Database (REAL REVIEW). This product uses the REAL REVIEW API but the API is being build currently.
+                    </p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <span>© 2023 REAL REVIEW</span>
+                    <span>•</span>
+                    <span>All rights reserved</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/Gener.js"></script>
+</body>
+</html>

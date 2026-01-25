@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- SHARED CSS FOR NAVBAR/FOOTER -->
+    <link rel="stylesheet" href="../css/shared.css">
+    <!-- PAGE-SPECIFIC CSS -->
+    <link rel="stylesheet" href="../css/overview.css">
+    <title>K-POP DEMON HUNTERS - Movie Review</title>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navdiv">
+            <!-- Logo -->
+            <a href="home.html" class="logo">
+                REAL REVIEW
+            </a>
+            
+            <!-- Regular Navigation Links (Visible on desktop) -->
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="Gener.html">Genre</a></li>
+                <li><a href="TopReview.html" >Top Reviewers</a></li>
+            </ul>
+            
+            <!-- Burger Menu Button -->
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <!-- Right section with search and profile icons -->
+            <div class="nav-right">
+                <!-- Search Icon Only (No search bar) -->
+                <a href="search.html" class="search-icon-link">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+                <!-- Profile Section -->
+                 <div class="profile-section">
+                    <div class="profile-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="profile-dropdown">
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-user-circle"></i> My Profile
+                        </a>
+                        <a href="myreviews.html" class="dropdown-item">
+                            <i class="fas fa-film"></i> My Reviews
+                        </a>
+                        <a href="watchlist.html" class="dropdown-item">
+                            <i class="fas fa-heart"></i> Watchlist
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        
+                        <a href="login2.html" class="dropdown-item">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Burger Menu Content (Hidden by default, shown on mobile) -->
+    <div class="burger-menu-content" id="burgerMenuContent">
+        <h2 class="burger-menu-header">Menu</h2>
+        
+        <!-- Navigation links in burger menu -->
+        <ul class="burger-nav-links">
+            <li><a href="home.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="Gener.html"><i class="fas fa-film"></i> Genre</a></li>
+            <li><a href="TopReview.html"><i class="fas fa-star"></i> Top Reviewers</a></li>
+        </ul>
+        
+        <div class="burger-menu-footer">
+            <p>© 2023 REAL REVIEW</p>
+            <p>All movie data provided by REAL REVIEW</p>
+        </div>
+    </div>
+    
+    <!-- Overlay when burger menu is open -->
+    <div class="burger-overlay" id="burgerOverlay"></div>
+
+    <!-- HERO SECTION with Video Player -->
+    <div class="hero">
+        <!-- Background Image (visible when video is not playing) -->
+        <div class="hero-background" style="background: 
+            linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.9)),
+            url('../resource/Resource/K-POP_demon_Hunter.jpg') center/cover;">
+            <div class="hero-content">
+                <!-- CENTERED PLAY BUTTON -->
+                <div class="play-btn-container">
+                    <button class="play-btn" id="playTrailerBtn">
+                        <i class="fas fa-play"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Video Player Container (hidden by default) -->
+        <div class="video-container" id="videoContainer">
+            <video id="trailerVideo" controls>
+                <source src="../resource/Resource/K-POP Demon Hunter.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <button class="close-video-btn" id="closeVideoBtn">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="content">
+        <h1 class="title">K-POP DEMON HUNTERS</h1>
+        <div class="subtitle">Action, Horror, Music • 2023 • 1h 48m</div>
+        
+        <div class="rating">
+            <div class="stars">★★★★☆</div>
+            <div class="rating-text">9.5 / 10 (1.2k reviews)</div>
+        </div>
+        
+        <!-- ACTION BUTTONS WITH PLAIN COLOR ICONS -->
+        <div class="actions">
+            <a href="watchlist.html" class="action-link">
+                <div class="action">
+                    <span class="action-icon"><i class="fas fa-bookmark"></i></span>
+                    <div class="action-text">Add list</div>
+                </div>
+            </a>
+            <a href="#" class="action-link" id="openReviewModalBtn">
+                <div class="action">
+                    <span class="action-icon"><i class="fas fa-edit"></i></span>
+                    <div class="action-text">Review</div>
+                </div>
+            </a>
+            <div class="action">
+                <span class="action-icon"><i class="fas fa-share-alt"></i></span>
+                <div class="action-text">Share</div>
+            </div>
+            <div class="action">
+                <span class="action-icon"><i class="fas fa-flag"></i></span>
+                <div class="action-text">Report</div>
+            </div>
+        </div>
+        
+        <!-- TABS -->
+        <div class="tabs-container">
+            <div class="tabs">
+                <div class="tab active" onclick="switchTab('overview')">Overview</div>
+                <div class="tab" onclick="switchTab('info')">Other Information</div>
+            </div>
+        </div>
+        
+        <!-- OVERVIEW SECTION -->
+        <div id="overview" class="section active">
+            <div class="overview-content">
+                When K-pop superstars Rumi, Mira and Zoey aren't selling out stadiums or topping the Billboard charts, they're moonlighting as demon hunters to protect their fans from ever-present supernatural danger. This action-packed thriller combines high-energy musical performances with supernatural battles.
+            </div>
+            
+            <div class="info-section">
+                <div class="section-title">Genre</div>
+                <div class="genre-tags">
+                    <div class="genre-tag">Musical</div>
+                    <div class="genre-tag">Drama</div>
+                    <div class="genre-tag">Action</div>
+                    <div class="genre-tag">Horror</div>
+                </div>
+            </div>
+            
+            <div class="info-section">
+                <div class="section-title">Casts <span class="see-all">See all ></span></div>
+                <div class="cast-row">
+                    <div class="cast">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" class="cast-image" alt="Arden Cho">
+                        <div class="cast-name">Arden Cho</div>
+                        <div class="cast-character">Rumi</div>
+                    </div>
+                    <div class="cast">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" class="cast-image" alt="May Hong">
+                        <div class="cast-name">May Hong</div>
+                        <div class="cast-character">Mira</div>
+                    </div>
+                    <div class="cast">
+                        <img src="https://randomuser.me/api/portraits/women/68.jpg" class="cast-image" alt="Ji-young Yoo">
+                        <div class="cast-name">Ji-young Yoo</div>
+                        <div class="cast-character">Zoey</div>
+                    </div>
+                    <div class="cast">
+                        <img src="https://randomuser.me/api/portraits/men/22.jpg" class="cast-image" alt="Ahn Hyo-seop">
+                        <div class="cast-name">Ahn Hyo-seop</div>
+                        <div class="cast-character">Jiru</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- OTHER INFORMATION SECTION -->
+        <div id="info" class="section">
+            <div class="info-section">
+                <div class="section-title">Full Cast <span class="see-all">See all ></span></div>
+                <div class="cast-row">
+                    <div class="cast">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" class="cast-image" alt="Arden Cho">
+                        <div class="cast-name">Arden Cho</div>
+                        <div class="cast-character">Rumi</div>
+                    </div>
+                    <div class="cast">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" class="cast-image" alt="May Hong">
+                        <div class="cast-name">May Hong</div>
+                        <div class="cast-character">Mira</div>
+                    </div>
+                    <div class="cast">
+                        <img src="https://randomuser.me/api/portraits/men/75.jpg" class="cast-image" alt="SungWon Cho">
+                        <div class="cast-name">SungWon Cho</div>
+                        <div class="cast-character">Abby Saja</div>
+                    </div>
+                    <div class="cast">
+                        <img src="https://randomuser.me/api/portraits/men/33.jpg" class="cast-image" alt="Joel Kim Booster">
+                        <div class="cast-name">Joel Kim Booster</div>
+                        <div class="cast-character">Romance Saja</div>
+                    </div>
+                    <div class="cast">
+                        <img src="https://randomuser.me/api/portraits/men/55.jpg" class="cast-image" alt="Alan Lee">
+                        <div class="cast-name">Alan Lee</div>
+                        <div class="cast-character">Mystery Saja</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="info-section">
+                <div class="section-title">Ratings & Reviews <span class="see-all">See all ></span></div>
+                
+                <!-- HORIZONTAL REVIEWS -->
+                <div class="reviews-container">
+                    <div class="review-card">
+                        <div class="review-profile">
+                            <img src="https://randomuser.me/api/portraits/men/1.jpg" class="profile-img" alt="MovieBuff92">
+                            <div class="profile-info">
+                                <div class="profile-name">MovieBuff92</div>
+                                <div class="prodate">2 days ago</div>
+                            </div>
+                        </div>
+                        <div class="review-rating">★★★★☆</div>
+                        <div class="review-text">"Starts a bit slow but ends with an amazing finale. The blend of K-pop and horror actually works better than expected! The musical sequences are visually stunning."</div>
+                        <div class="review-stats">
+                            <div class="review-likes">
+                                <button class="like-btn"><i class="fas fa-heart"></i></button>
+                                <span>124 likes</span>
+                            </div>
+                            <div class="review-replies">3 replies</div>
+                        </div>
+                    </div>
+                    
+                    <div class="review-card">
+                        <div class="review-profile">
+                            <img src="https://randomuser.me/api/portraits/women/2.jpg" class="profile-img" alt="CinemaLover">
+                            <div class="profile-info">
+                                <div class="profile-name">CinemaLover</div>
+                                <div class="prodate">1 week ago</div>
+                            </div>
+                        </div>
+                        <div class="review-rating">★★★★★</div>
+                        <div class="review-text">"Stylish, fun, and surprisingly emotional. The musical numbers are incredible and the action sequences are top-notch. Arden Cho's performance is outstanding!"</div>
+                        <div class="review-stats">
+                            <div class="review-likes">
+                                <button class="like-btn liked"><i class="fas fa-heart"></i></button>
+                                <span>89 likes</span>
+                            </div>
+                            <div class="review-replies">1 reply</div>
+                        </div>
+                    </div>
+                    
+                    <div class="review-card">
+                        <div class="review-profile">
+                            <img src="https://randomuser.me/api/portraits/men/3.jpg" class="profile-img" alt="HorrorFanatic">
+                            <div class="profile-info">
+                                <div class="profile-name">HorrorFanatic</div>
+                                <div class="prodate">3 weeks ago</div>
+                            </div>
+                        </div>
+                        <div class="review-rating">★★★☆☆</div>
+                        <div class="review-text">"Good concept but could have been scarier. The demon designs are creative though, and the cast has great chemistry. Worth watching for the visuals alone."</div>
+                        <div class="review-stats">
+                            <div class="review-likes">
+                                <button class="like-btn"><i class="fas fa-heart"></i></button>
+                                <span>56 likes</span>
+                            </div>
+                            <div class="review-replies">7 replies</div>
+                        </div>
+                    </div>
+                    
+                    <div class="review-card">
+                        <div class="review-profile">
+                            <img src="https://randomuser.me/api/portraits/women/4.jpg" class="profile-img" alt="KPOPStan">
+                            <div class="profile-info">
+                                <div class="profile-name">KPOPStan</div>
+                                <div class="prodate">5 days ago</div>
+                            </div>
+                        </div>
+                        <div class="review-rating">★★★★★</div>
+                        <div class="review-text">"As a K-pop fan, I loved every minute! The music is catchy and the choreography is amazing. The horror elements add an exciting twist to the genre."</div>
+                        <div class="review-stats">
+                            <div class="review-likes">
+                                <button class="like-btn"><i class="fas fa-heart"></i></button>
+                                <span>210 likes</span>
+                            </div>
+                            <div class="review-replies">12 replies</div>
+                        </div>
+                    </div>
+                    
+                    <div class="review-card">
+                        <div class="review-profile">
+                            <img src="https://randomuser.me/api/portraits/men/5.jpg" class="profile-img" alt="FilmCritic101">
+                            <div class="profile-info">
+                                <div class="profile-name">FilmCritic101</div>
+                                <div class="prodate">2 weeks ago</div>
+                            </div>
+                        </div>
+                        <div class="review-rating">★★★★☆</div>
+                        <div class="review-text">"A fresh take on both the musical and horror genres. While some plot points are predictable, the execution and visual style make up for it. Solid 4 stars."</div>
+                        <div class="review-stats">
+                            <div class="review-likes">
+                                <button class="like-btn liked"><i class="fas fa-heart"></i></button>
+                                <span>78 likes</span>
+                            </div>
+                            <div class="review-replies">5 replies</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- ADD REVIEW BUTTON IN PAGE (OPTIONAL) -->
+                <div class="add-review-button-container">
+                    <button class="add-review-btn" id="openReviewModalPageBtn">
+                        <i class="fas fa-edit"></i> Write a Review
+                    </button>
+                </div>
+            </div>
+            
+            <div class="info-section">
+                <div class="section-title">Related Movies</div>
+                <div class="related-row">
+                    <a href="overview.html?movie=inception" class="related-link">
+                        <div class="related-item">
+                            <img src="../resource/Resource/inception.jpg" class="related-image" alt="Inception">
+                            <div class="related-title">Inception</div>
+                        </div>
+                    </a>
+                    <a href="overview.html?movie=joker" class="related-link">
+                        <div class="related-item">
+                            <img src="../resource/Resource/Joker.jpg" class="related-image" alt="Joker">
+                            <div class="related-title">Joker</div>
+                        </div>
+                    </a>
+                    <a href="overview.html?movie=aladdin" class="related-link">
+                        <div class="related-item">
+                            <img src="../resource/Resource/Aladin.jpg" class="related-image" alt="Aladdin">
+                            <div class="related-title">Aladdin</div>
+                        </div>
+                    </a>
+                    <a href="overview.html?movie=interstellar" class="related-link">
+                        <div class="related-item">
+                            <img src="../resource/Resource/Interstellar.jpg" class="related-image" alt="Interstellar">
+                            <div class="related-title">Interstellar</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- REVIEW MODAL (POPUP) -->
+    <div class="review-modal" id="reviewModal">
+        <div class="review-modal-content">
+            <div class="review-modal-header">
+                <h2><i class="fas fa-edit"></i> Write Your Review</h2>
+                <button class="close-review-modal" id="closeReviewModalBtn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="review-modal-body">
+                <div class="movie-info-modal">
+                    <div class="movie-poster-small">
+                        <img src="../resource/Resource/K-POP_demon_Hunter.jpg" alt="K-POP DEMON HUNTERS">
+                    </div>
+                    <div class="movie-details-modal">
+                        <h3>K-POP DEMON HUNTERS</h3>
+                        <p class="movie-subtitle-modal">Action, Horror, Music • 2023 • 1h 48m</p>
+                    </div>
+                </div>
+                
+                <div class="rating-section-modal">
+                    <div class="rating-label">Your Rating:</div>
+                    <div class="star-selector-modal">
+                        <span class="star-modal" data-rating="1">☆</span>
+                        <span class="star-modal" data-rating="2">☆</span>
+                        <span class="star-modal" data-rating="3">☆</span>
+                        <span class="star-modal" data-rating="4">☆</span>
+                        <span class="star-modal" data-rating="5">☆</span>
+                        <span class="rating-text-modal">0/5</span>
+                    </div>
+                </div>
+                
+                <div class="review-input-section">
+                    <div class="user-avatar-modal">
+                        <img src="https://randomuser.me/api/portraits/women/6.jpg" alt="Your Avatar">
+                    </div>
+                    <textarea class="review-textarea-modal" placeholder="Share your thoughts about the movie... What did you like or dislike? Would you recommend it to others?" rows="6"></textarea>
+                </div>
+                
+                <div class="review-tips">
+                    <p><i class="fas fa-lightbulb"></i> Tip: Great reviews mention the acting, directing, plot, and overall experience.</p>
+                </div>
+                
+                <div class="modal-actions">
+                    <button class="cancel-review-btn" id="cancelReviewBtn">Cancel</button>
+                    <button class="submit-review-modal-btn" id="submitReviewModalBtn">Submit Review</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <!-- Left Section -->
+                <div class="footer-left">
+                    <div class="footer-logo">
+                        REAL REVIEW
+                    </div>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <!-- Right Section -->
+                <div class="footer-right">
+                    <p class="footer-description">
+                        All movie data provided by The Movie Database (REAL REVIEW). This product uses the REAL REVIEW API but the API is being build currently.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Bottom Section -->
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <span>© 2023 REAL REVIEW</span>
+                    <span>•</span>
+                    <span>All rights reserved</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/overview.js"></script>
+</body>
+</html>

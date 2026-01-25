@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ADDED FAVICON -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎬</text></svg>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- ADD SHARED.CSS FOR NAVBAR/FOOTER -->
+    <link rel="stylesheet" href="../css/shared.css">
+    <!-- PAGE-SPECIFIC CSS -->
+    <link rel="stylesheet" href="../css/search.css">
+    <title>Search Results - Movie Review</title>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navdiv">
+            <!-- Logo - Make it clickable -->
+            <a href="home.html" class="logo">
+                REAL REVIEW
+            </a>
+            
+            <!-- Navigation Links (Visible only on desktop) -->
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="Gener.html">Genre</a></li>
+            </ul>
+            
+            <!-- Burger Menu Button -->
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <!-- Right section with search and profile icons -->
+            <div class="nav-right">
+                <!-- Search Icon Only (No search bar) - ADDED active-search CLASS -->
+                <a href="search.html" class="search-icon-link active-search">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+                <!-- Profile Section -->
+                <div class="profile-section">
+                    <div class="profile-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="profile-dropdown">
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-user-circle"></i> My Profile
+                        </a>
+                        <a href="myreviews.html" class="dropdown-item">
+                            <i class="fas fa-film"></i> My Reviews
+                        </a>
+                        <a href="watchlist.html" class="dropdown-item">
+                            <i class="fas fa-heart"></i> Watchlist
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-cog"></i> Settings
+                        </a>
+                        <a href="login2.html" class="dropdown-item">
+                            <i class="fas fa-sign-out-alt"></i> login
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Burger Menu Content (Hidden by default, shown on mobile) -->
+    <div class="burger-menu-content" id="burgerMenuContent">
+        <h2 class="burger-menu-header">Menu</h2>
+        
+        <!-- Navigation links in burger menu -->
+        <ul class="burger-nav-links">
+            <li><a href="home.html"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="Gener.html"><i class="fas fa-film"></i> Genre</a></li>
+        </ul>
+        
+        <div class="burger-menu-footer">
+            <p>© 2023 REAL REVIEW</p>
+            <p>All movie data provided by REAL REVIEW</p>
+        </div>
+    </div>
+    
+    <!-- Overlay when burger menu is open -->
+    <div class="burger-overlay" id="burgerOverlay"></div>
+    
+    <!-- Search Results Content -->
+    <main class="search-results-container">
+        <div class="search-header">
+            <h1>Search Results</h1>
+            <p class="subtitle">Type a letter to see movies starting with that letter</p>
+        </div>
+        
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Type a letter (e.g., 'A')" value="A">
+            <button id="search-button">Search</button>
+        </div>
+        
+        <div class="search-info">Movies starting with: <span id="current-letter">A</span></div>
+        
+        <div class="results-container" id="results-container">
+            <!-- Movies starting with A -->
+            <div class="movie-row" data-letter="A">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/A_Quiet_Place.jpg" alt="After" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">A Quiet Place</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(550k view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[2018]</div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="movie-row" data-letter="A">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/After.jpg" alt="After" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">After</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(110k view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[2019]</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="movie-row" data-letter="A">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/Aladdin-poster.jpg" alt="Aladdin" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">Aladdin</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(300k view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[2019]</div>
+                    </div>
+                </div>
+            </div>
+            
+            
+
+            <div class="movie-row" data-letter="A">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/Alien.jpg" alt="Alien" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">Alien</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(950k view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[1979]</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="movie-row" data-letter="A">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/American-psycho.jpg" alt="American-psycho" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">American Pysycho</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(950k view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[2000]</div>
+                    </div>
+                </div>
+            </div>
+
+
+            
+            <div class="movie-row" data-letter="A">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/Anora.jpg" alt="Anora" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">Anora</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(10k view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[2024]</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="movie-row" data-letter="A">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                       <img src="../resource/Ant-Man.jpg" alt="Ant Man" class="movie-poster-img"> 
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">Ant-man</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(10k view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[2020]</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Movies starting with B -->
+            <div class="movie-row" data-letter="B">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/barbie.jpg" alt="Barbie" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">Barbie</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(600k view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[2023]</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="movie-row" data-letter="B">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/Black_Panther.jpg" alt="Black Panther" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">Black Panther</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(22k view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[2018]</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="movie-row" data-letter="B">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/Blade_Runner.jpg" alt="Blade Runner" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">Blade Runner</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(800k view)</span>
+                            <span class="movie-rating">★★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[1982]</div>
+                    </div>
+                </div>
+            </div>
+            
+             <div class="movie-row" data-letter="B">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/braveheart.jpg" alt="Breaveheart" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">Braveheart</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(1.1M view)</span>
+                            <span class="movie-rating">★★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[1995]</div>
+                    </div>
+                </div>
+            </div>
+
+             <div class="movie-row" data-letter="B">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/Bridesmaids.jpg" alt="Bridesmaids" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">Bridesmaids</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(300k view)</span>
+                            <span class="movie-rating">★★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[2011]</div>
+                    </div>
+                </div>
+            </div>
+            
+             <div class="movie-row" data-letter="C">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/Casablanca.jpg" alt="Casablanca" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">Casablanca</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(600k view)</span>
+                            <span class="movie-rating">★★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[1942]</div>
+                    </div>
+                </div>
+            </div>
+            
+             <div class="movie-row" data-letter="C">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/citizen_kane.jpg" alt="citizen kane" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">citizen kane</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(450k view)</span>
+                            <span class="movie-rating">★★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[1941]</div>
+                    </div>
+                </div>
+            </div>
+            
+             <div class="movie-row" data-letter="C">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/coco.jpg" alt="Coco" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">Coco</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(600k view)</span>
+                            <span class="movie-rating">★★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[2017]</div>
+                    </div>
+                </div>
+            </div>
+            
+
+            <!-- Movies starting with D -->
+            <div class="movie-row" data-letter="D">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/Demon_Slayer.jpg" alt="Demon Slayer" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">Demon Slayer</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(75k view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[2020]</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="movie-row" data-letter="D">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/Dune.jpg" alt="Dune" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">Dune</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(850k view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[2021]</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Movies starting with E -->
+            <div class="movie-row" data-letter="E">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/E.T..jpg" alt="E.T the Extra-Terrestrial" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">E.T the Extra-Terrestrial</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(450k view)</span>
+                            <span class="movie-rating">★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[1982]</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="movie-row" data-letter="E">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/Everything_everywhere_all_at_once.jpg" alt="Everything everywhere all at once" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">Everything everywhere all at once</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(850k view)</span>
+                            <span class="movie-rating">★★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[2022]</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Movies starting with F -->
+            <div class="movie-row" data-letter="F">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/fightclub.jpg" alt="Fight Club" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">Fight Club</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(2.8M view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[1999]</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="movie-row" data-letter="F">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/Finding_Nemo.jpg" alt="Finding Nemo" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">Finding Nemo</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(1.1M view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[2003]</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="movie-row" data-letter="F">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/Forrest_Gump.jpg" alt="Forrest Gump" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">Forrest Gump</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(2.2M view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[1994]</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="movie-row" data-letter="F">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/Frozen.webp" alt="Frozen" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">Frozen</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(25k view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[2013]</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Movies starting with G -->
+            <div class="movie-row" data-letter="G">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/get_out.jpg" alt="Get Out" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">Get Out</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(650k view)</span>
+                            <span class="movie-rating">★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[2017]</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="movie-row" data-letter="G">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/Gladiator.jpg" alt="Gladiator" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">Gladiator</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(1.6M view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[2000]</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="movie-row" data-letter="G">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/Goodfellas.jpg" alt="Goodfellas" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">Goodfellas</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(1.3M view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[1990]</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Movies starting with H -->
+            <div class="movie-row" data-letter="H">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/Harry_Poter.jpg" alt="Harry Poter" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">Harry Poter</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(900k view)</span>
+                            <span class="movie-rating">★★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[2001]</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="movie-row" data-letter="H">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/Her.jpg" alt="Her" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">Her</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(650k view)</span>
+                            <span class="movie-rating">★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[2013]</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="movie-row" data-letter="H">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/How_To_Train_Your_Dragon.webp" alt="How To Train Your Dragon" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">How To Train Your Dragon</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(800k view)</span>
+                            <span class="movie-rating">★★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[2010]</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Movies starting with I -->
+            <div class="movie-row" data-letter="I">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/Inception.jpg" alt="Inception" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">Inception</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(29k view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[2010]</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="movie-row" data-letter="I">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/Interstellar.jpg" alt="Interstellar" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">Interstellar</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(26k view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[2014]</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Movies starting with J -->
+            <div class="movie-row" data-letter="J">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/Joker.jpg" alt="Joker" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">Joker</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(21k view)</span>
+                            <span class="movie-rating">★★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[2019]</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="movie-row" data-letter="J">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/John-Wick-Chapter-2.webp" alt="John Wick chapter 2" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">John Wick: Chapter 2</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(1.5k view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[2014]</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="movie-row" data-letter="J">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/Jurassic-park.jpg" alt="Jurassic park" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">Jurassic park</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(1.1M view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[1993]</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Movies starting with K -->
+            <div class="movie-row" data-letter="K">
+                <a href="overview.html?movie=kpop-demon-hunter" class="movie-card-link">
+                    <div class="movie-horizontal-card">
+                        <div class="movie-horizontal-poster">
+                            <img src="../resource/KPDHposter.jpeg" alt="K-Pop Demon Hunter" class="movie-poster-img">
+                        </div>
+                        <div class="movie-horizontal-content">
+                            <h3 class="movie-horizontal-title">K-Pop Demon Hunter</h3>
+                            <div class="movie-horizontal-stats">
+                                <span class="movie-views">(1.2M view)</span>
+                                <span class="movie-rating">★★★★★</span>
+                            </div>
+                            <div class="movie-horizontal-year">[2025]</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+
+
+
+
+
+
+            <div class="movie-row" data-letter="K">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/Kill_Bill.jpg" alt="Kill Bill" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">Kill Bill</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(1.2M view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[2003]</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="movie-row" data-letter="K">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/Knives_Out.jpg" alt="Knives Out" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">Knives Out</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(750k view)</span>
+                            <span class="movie-rating">★★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[2019]</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Movies starting with L -->
+            <div class="movie-row" data-letter="L">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/LA_La_land.jpg" alt="LA La land" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">La La land</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(650k view)</span>
+                            <span class="movie-rating">★★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[2016]</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="movie-row" data-letter="L">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/Lord-of-the-rings.jpg" alt="Lord of the rings" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">Lord of the rings</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(1.9M view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[2001]</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Movies starting with M -->
+            <div class="movie-row" data-letter="M">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/Mad_Max_Fury_Road.jpg" alt="Mad Max: Fury Road" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">Mad Max: Fury Road</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(1.1M view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[2015]</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="movie-row" data-letter="M">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/Matrix.jpg" alt="Matrix" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">Matrix</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(2.1M view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[1999]</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="movie-row" data-letter="M">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/Mission-Impossible.jpg" alt="Mission: Impossible" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">Mission: Impossible</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(450k view)</span>
+                            <span class="movie-rating">★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[1996]</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Movies starting with N -->
+            <div class="movie-row" data-letter="N">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/No_Country_for_old_men.jpg" alt="No Country for old men" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">No Country for old men</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(1.0M view)</span>
+                            <span class="movie-rating">★★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[2007]</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Movies starting with O -->
+            <div class="movie-row" data-letter="O">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/Once_upon_a_tiome.jpg" alt="Once Upon a Time in HollyWood" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">Once Upon a Time in HollyWood</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(850k view)</span>
+                            <span class="movie-rating">★★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[2019]</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Movies starting with P -->
+            <div class="movie-row" data-letter="P">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/Parasite.jpg" alt="Parasite" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">Parasite</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(900k view)</span>
+                            <span class="movie-rating">★★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[2019]</div>
+                    </div>
+                </div>
+            </div>
+
+          
+            <div class="movie-row" data-letter="P">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/pulp-fiction.jpg" alt="pulp fiction" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">Pulp Fiction</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(2.3M view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[1994]</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Movies starting with R -->
+            <div class="movie-row" data-letter="R">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/Raised_by_Wolves.webp" alt="Raised by Wolves" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">Raised by Wolves</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(7k view)</span>
+                            <span class="movie-rating">★★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[2020]</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Movies starting with S -->
+            <div class="movie-row" data-letter="S">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/Se7en.jpg" alt="Se7en" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">Se7en</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(1.8M view)</span>
+                            <span class="movie-rating">★★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[1995]</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="movie-row" data-letter="S">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                      <img src="../resource/Shrek.jpg" alt="Shrek" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">Shrek</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(700k view)</span>
+                            <span class="movie-rating">★★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[2001]</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="movie-row" data-letter="S">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/Shutter-Island.jpg" alt="Shutter-Island" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">Shutter Island</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(1.4M view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[2010]</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="movie-row" data-letter="S">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/Spider-Man_Into_the_Spider-Verse.png" alt="Spider-Man: Into the Spider-Verse" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">Spider-Man: Into the Spider-Verse</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(19k view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[2018]</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="movie-row" data-letter="S">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/Spirited-Away.jpg" alt="Spirited Away" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">Spirited Away</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(800k view)</span>
+                            <span class="movie-rating">★★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[2001]</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="movie-row" data-letter="S">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/Step-Brothers.jpg" alt="Step Brothers" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">Step Brothers</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(600k view)</span>
+                            <span class="movie-rating">★★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[2008]</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="movie-row" data-letter="S">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/Superbad.jpg" alt="Superbad" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">Superbad</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(600k view)</span>
+                            <span class="movie-rating">★★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[2007]</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Movies starting with T -->
+            <div class="movie-row" data-letter="T">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/The_dark_night.jpg" alt="The Dark Knight" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">The Dark Knight</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(30k view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[2008]</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="movie-row" data-letter="T">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/ToyStory.webp" alt="Toy Story" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">Toy Story</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(23k view)</span>
+                            <span class="movie-rating">★★★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[1995]</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="movie-row" data-letter="T">
+                <div class="movie-horizontal-card">
+                    <div class="movie-horizontal-poster">
+                        <img src="../resource/Toxic.jpg" alt="Toxic" class="movie-poster-img">
+                    </div>
+                    <div class="movie-horizontal-content">
+                        <h3 class="movie-horizontal-title">Toxic</h3>
+                        <div class="movie-horizontal-stats">
+                            <span class="movie-views">(5k view)</span>
+                            <span class="movie-rating">★★★</span>
+                        </div>
+                        <div class="movie-horizontal-year">[2023]</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <!-- Left Section -->
+                <div class="footer-left">
+                    <div class="footer-logo">
+                        REAL REVIEW
+                    </div>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <!-- Right Section -->
+                <div class="footer-right">
+                    
+                    <p class="footer-description">
+                       All movie data provided by The Movie Database (REAL REVIEW). This product uses the REAL REVIEW API but the API is being build currently.
+                </div>
+            </div>
+
+            <!-- Bottom Section -->
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <span>© 2023 REAL REVIEW</span>
+                    <span>•</span>
+                    <span>All rights reserved</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/search.js"></script>
+</body>
+</html>

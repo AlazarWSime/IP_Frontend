@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REAL REVIEW | Login</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎬</text></svg>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/login2.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="form-content">
+            <div class="teal-header">
+                <h1>REAL</h1>
+                <h1>REVIEW</h1>
+            </div>
+            
+            <div class="welcome-text">
+                <h2>Welcome back</h2>
+                <h4>Please enter your details</h4>
+            </div>
+            
+            <div class="login-options">
+                <!-- Google login option -->
+                <div class="google-login">
+                    <input type="checkbox" id="google-login">
+                    <label for="google-login">
+                        <i class="fab fa-google google-icon"></i>
+                        Log in with Google
+                    </label>
+                </div>
+                
+                <!-- Status message for Google login -->
+                <div class="google-status" id="googleStatus">
+                    Google login selected - email/password fields disabled
+                </div>
+                
+                <div class="separator">
+                    <span>Or</span>
+                </div>
+            </div>
+            
+            <form id="loginForm">
+                <div class="input-group">
+                    <label for="email">Email :</label>
+                    <input type="email" id="email" class="input-field" placeholder="Enter your email">
+                </div>
+                
+                <div class="input-group">
+                    <label for="password">Password :</label>
+                    <input type="password" id="password" class="input-field" placeholder="Enter your password">
+                </div>
+                
+                <div class="remember-me">
+                    <input type="checkbox" id="remember">
+                    <label for="remember">Remember for 30 days</label>
+                </div>
+                
+                <button type="submit" class="login-button" id="loginButton">Login</button>
+            </form>
+            
+            <div class="signup-link">
+                <p>Don't have an account? <a href="signup2.html">Sign up</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/login2.js"></script>
+</body>
+</html>
